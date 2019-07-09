@@ -13,8 +13,7 @@
 
 ### dialog
 
-*page.json*
-```
+```json
 {
   "defaultTitle": "活动成员",
   "usingComponents": {
@@ -23,8 +22,7 @@
 }
 ```
 
-*page.axml*
-```
+```xml
 <dialog
   show="{{delDialog.show}}"
   title="{{delDialog.title}}" 
@@ -38,8 +36,7 @@
 
 ### comfirm
 
-*page.json*
-```
+```json
 {
   "defaultTitle": "修改信息",
   "usingComponents": {
@@ -48,8 +45,7 @@
 }
 ```
 
-*page.axml*
-```
+```xml
 <confirm-popup show="{{showConfirmPopup}}" title="提示" btns="{{confirmBtns}}" onBtnClick="onConfirmPopupBtnClick" onClose="onCloseConfirmPopup">
     <text>{{confirmMsg}}
     </text>
@@ -100,4 +96,41 @@
 
 ```xml
 <filter-bar className="filter-bar" />
+```
+
+### filters
+
+
+
+### tabs
+
+```json
+{
+  "usingComponents": {
+    "tab-bar": "jx-mini-antui/dist/tabs/index"
+  }
+}
+```
+
+
+```xml
+<tab-bar
+  className="tab-bar"
+  tabs="{{tabs}}"
+  showPlus="{{false}}"
+  onTabClick="handleTabClick"
+  onChange="handleTabChange"
+  onPlusClick="handlePlusClick"
+  activeTab="{{activeTab}}"
+  swipeable="{{true}}">
+</tab-bar>
+```
+
+
+```css
+.tab-bar {
+  position: sticky;
+  z-index: 100; 
+  top: 0rpx;
+}
 ```
