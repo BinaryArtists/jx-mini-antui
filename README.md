@@ -74,3 +74,30 @@
   </view>
 </confirm-popup>
 ```
+
+### filter 
+
+```css
+
+.filter-bar {
+  position: sticky; // 顶部停靠
+  margin-top: 0rpx;
+  background-color: #EBEBEB;
+  z-index: 2;
+}
+
+```
+
+```json
+{
+  "usingComponents": {
+    "filter-bar": "jx-mini-antui/dist/filter/index"
+  },
+  "pullRefresh": false
+}
+```
+
+
+```xml
+<filter-bar className="filter-bar" />
+```
