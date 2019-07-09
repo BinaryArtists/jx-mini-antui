@@ -54,7 +54,7 @@ Component({
       var filterIndex = e.target.dataset.index
       this.setData({
         showPopup: false,
-        filterIndex,
+        filterIndex
       })
       if (this.props.onFilterChanged) {
         this.props.onFilterChanged(this.props.filters[filterIndex])
@@ -94,7 +94,7 @@ Component({
       orderBys.forEach(element => {
         orderByStates.push({
           orderBy: element,
-          orderTypeIndex: 0,
+          orderTypeIndex: 0
         })
       })
       this.setData({
