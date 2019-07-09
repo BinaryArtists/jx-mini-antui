@@ -54,7 +54,7 @@ Component({
       var filterIndex = e.target.dataset.index
       this.setData({
         showPopup: false,
-        filterIndex
+        filterIndex: filterIndex
       })
       if (this.props.onFilterChanged) {
         this.props.onFilterChanged(this.props.filters[filterIndex])
@@ -83,7 +83,7 @@ Component({
     onDisplayModeTap: function (e) {
       var displayModeIndex = (this.data.displayModeIndex + 1) % this.props.displayModes.length
       this.setData({
-        displayModeIndex
+        displayModeIndex: displayModeIndex
       })
       if (this.props.onDisplayModeChanged) {
         this.props.onDisplayModeChanged(this.props.displayModes[displayModeIndex])
@@ -98,7 +98,7 @@ Component({
         })
       })
       this.setData({
-        orderByStates
+        orderByStates: orderByStates
       })
     },
     // 将初始状态通知给外部
@@ -110,7 +110,7 @@ Component({
           if (orderType !== 'none') {
             order = {
               orderBy: state.orderBy,
-              orderType
+              orderType: orderType
             }
             break;
           }
