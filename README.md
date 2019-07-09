@@ -7,9 +7,7 @@
 {
   "defaultTitle": "活动成员",
   "usingComponents": {
-    "member-card": "/components/member-card/member-card",
-    "member-grid": "/components/member-grid/index",
-    "dialog": "@ali/alisports-components/dist/dialog/dialog"
+    "dialog": "jx-mini-antui/dist/dialog/dialog"
   }
 }
 ```
@@ -32,9 +30,9 @@
 *page.json*
 ```
 {
-  "defaultTitle": "修改团子信息",
+  "defaultTitle": "修改信息",
   "usingComponents": {
-    "confirm-popup": "@ali/alisports-components/dist/confirm/confirm"
+    "confirm-popup": "jx-mini-antui/dist/confirm/confirm"
   }
 }
 ```
@@ -46,20 +44,20 @@
     </text>
 </confirm-popup>
 
-<confirm-popup show="{{showSuccessPopup}}" title="创建活动成功" btns="{{successBtns}}" onBtnClick="onSuccessPopupBtnClick" onClose="onCloseSuccessPopup">
+<confirm-popup show="{{showSuccessPopup}}" title="创建成功" btns="{{successBtns}}" onBtnClick="onSuccessPopupBtnClick" onClose="onCloseSuccessPopup">
   <view class="success-popup-content">
     <image src="/images/activity_created.webp" mode="aspectFit" class="img"/>
     <view class="msg">
       <view class="msg-container" a:if="{{clubCreateResult.club_auto_created}}">
         <text>提示：活动需要从属于某一个团子\n已为您自动创建</text>
         <view class="link-btn" onTap="toClub">
-          <text>查看团子</text>
+          <text>查看</text>
           <view class="arrow-primary" aria-hidden="true" />
         </view>
       </view>
       <block a:else>提示：此活动归属于您的”
         <text class="club-name">{{clubCreateResult.club_name}}
-        </text>“团子
+        </text>...
       </block>
     </view>
   </view>
