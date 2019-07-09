@@ -1,0 +1,37 @@
+<import-sjs name="util" from="./util.sjs"/>
+<!-- position: sticky;z-index: 100; top: 0rpx;margin-top: 42px;float: top; -->
+<view class="jx-tabs {{className}}">
+  <view class="jx-tabs-tab-bar-wrap">
+    <view class="jx-tabs-bar">
+      <view class="jx-tabs-bar-content-wrap">
+        <view class="jx-tabs-scroll-left"></view>
+        <view class="jx-tabs-scroll-right"></view>
+        <scroll-view
+          scroll-left="{{util.calcScrollLeft(windowWidth, tabWidth, activeTab)}}"
+          scroll-x="{{true}}"
+          scroll-with-animation="{{animation}}"
+          class="jx-tabs-bar-content">
+          <block a:for="{{tabs}}">
+            <view
+              data-index="{{index}}"
+              key="tabs-item-{{index}}"
+              onTap="handleTabClick"
+              style="{{
+                backgroundColor: tabBarBackgroundColor,
+                color: index === activeTab ? tabBarActiveTextColor: tabBarInactiveTextColor,
+                width: (tabs.length > 3 ? 0.25 : 1 / tabs.length) * 100 + '%',
+              }}"
+              class="jx-tabs-bar-tab {{tabBarCls}}">
+              <view class="jx-tabs-bar-title {{ index === activeTab ? activeCls : '' }}" style="{{ borderBottomColor: index === activeTab ? tabBarUnderlineColor : '' }}">
+                <text>{{item.title}}</text>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <view class="jx-tabs-plus-wrap {{showPlus ? 'show' : ''}}">
+        <view class="jx-tabs-plus" onTap="handlePlusClick"></view>
+      </view>
+    </view>
+  </view>
+</view>
