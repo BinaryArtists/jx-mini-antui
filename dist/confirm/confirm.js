@@ -51,31 +51,24 @@ Component({
     title: '',
     btns: [],
     showConfirmPopup: false,
-    onBtnClick: data => console.log(data),
+    onBtnClick: null,
   },
   methods: {
-    onMaskTap: function onMaskTap() {
+    onMaskTap: function () {
       var onMaskTap = this.props.onMaskTap;
-      if (onMaskTap) {
-        onMaskTap();
-      }
+      onMaskTap && onMaskTap();
 
       var onClose = this.props.onClose;
-      if (onClose) {
-        onClose();
-      }
+      onClose && onClose();
     },
-    onBtnTap(e){
-      const {onBtnClick} = this.props;
-      if (onBtnClick) {
-        onBtnClick(e.target.dataset.event, e.target.dataset.param);
-      }
+    onBtnTap: function (e){
+      var onBtnClick = this.props.onBtnClick;
+      onBtnClick &&  onBtnClick(e.target.dataset.event, e.target.dataset.param);
     },
-    onCloseTap() {
+    onCloseTap: function () {
       var onClose = this.props.onClose;
-      if (onClose) {
-        onClose();
-      }
+      
+      onClose && onClose();
     }
   }
 });

@@ -25,19 +25,19 @@ Component({
     title:'提示',
     buttons:[ { type: 'minor', title: '确定', event: 'confirmed' } ],
 
-    onButtonClicked:data => console.log(data),
+    onButtonClicked: null,
     data: 'null'
   },
 
-  didUnmount() {},
+  didUnmount: function() {},
 
-  didMount() {
+  didMount: function() {
     this.setData({
       show: this.props.show
     })
   },
 
-  didUpdate (prevProps, prevData) {
+  didUpdate: function (prevProps, prevData) {
     if (prevProps.show === !this.props.show) {
       this.setData({
         show: this.props.show
@@ -46,12 +46,12 @@ Component({
   },
 
   methods: {
-    onClose (e) {
+    onClose: function (e) {
     },
-    onClick (e) {
+    onClick: function (e) {
     },
-    onBtnClicked (e) {
-      let { onButtonClicked } = this.props
+    onBtnClicked: function (e) {
+      var onButtonClicked = this.props.onBtnClick;
 
       onButtonClicked && onButtonClicked(e.target.dataset, this.props.data)
     }

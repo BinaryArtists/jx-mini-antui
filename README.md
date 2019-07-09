@@ -1,5 +1,16 @@
 # 组件使用
 
+### JS 写法注意
+
+```
+// 1. No 'const'
+// 2. No '{
+  func () {}
+}'
+// 3. No 'data => data'
+// 4. No 'let { a } = data'
+```
+
 ### dialog
 
 *page.json*
