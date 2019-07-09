@@ -72,9 +72,10 @@ Component({
       var tappedIndex = e.target.dataset.index
       var nextOrderTypeIndex = (this.data.orderByStates[tappedIndex].orderTypeIndex + 1) % this.props.orderTypes.length
       for (var index = 0; index < this.data.orderByStates.length; index++) {
-        this.setData({
-          [`orderByStates[${index}].orderTypeIndex`]: index === tappedIndex ? nextOrderTypeIndex : 0
-        })
+        var key = 'orderByStates'+index+'.orderTypeIndex';
+        var data = {};
+        data[key] = index === tappedIndex ? nextOrderTypeIndex : 0;
+        this.setData(data);
       }
       if (this.props.onOrderChanged) {
         this.props.onOrderChanged(this.props.orderBys[tappedIndex], this.props.orderTypes[nextOrderTypeIndex])
@@ -91,7 +92,7 @@ Component({
     },
     orderBysToStates: function (orderBys) {
       var orderByStates = []
-      orderBys.forEach(element => {
+      orderBys.forEach(function (element) {
         orderByStates.push({
           orderBy: element,
           orderTypeIndex: 0
