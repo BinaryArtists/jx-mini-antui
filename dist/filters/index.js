@@ -1,18 +1,15 @@
-
-
-/// items
-// [itemName1, itemName2, itemName3]
-// callback(idx, itemName)
-
-/// city
-
-
-/// price
-
-/// collection
-
 Component({
   mixins: [],
+  // 入参
+  props: {
+    titleItems: [],
+    contentItems: [],
+    title:'提示',
+    buttons:[ { type: 'minor', title: '确定', event: 'confirmed' } ],
+
+    onChange: function (itemSetting) {},
+  },
+  // 视图模型
   data: {
     // 样式控制
     titleIdx: -1,
@@ -30,51 +27,60 @@ Component({
     // content 内容区域 数据
 
     titleItems: ['全部分类', '比赛日期', '地区', '价格区间'],
-    contentItems: [{
-      type: 'single',
-      items: ['选项一', '选项二', '选项三', '选项四'],
-      selected: ''
-    }, {
-      type: 'double',
-      items: [['选项一', '选项二', '选项三', '选项四'], ['选项一', '选项二', '选项三', '选项四']],
-      selected: ['', '']
-    }, {
-      type: 'triple',
-      items: [
-        ['选项一', '选项二', '选项三', '选项四'], 
-        {
-          '选项一': ['选项一', '选项二', '选项三', '选项四', '选项五'], 
-          '选项二': ['选项一', '选项二', '选项三', '选项四'], 
-          '选项三': ['选项一', '选项二', '选项三', '选项四'], 
-          '选项四': ['选项一', '选项二', '选项三', '选项四']
-        }, 
-        {
-          '选项一': ['选项一', '选项二', '选项三', '选项四'], 
-          '选项二': ['选项二', '选项三', '选项四'], 
-          '选项三': ['选项一', '选项三', '选项四'], 
-          '选项四': ['选项一', '选项二', '选项三', '选项四'],
-          '选项五': ['选项一', '选项二', '选项三']
-        }],
-      selected: ['', '', '']
-    }, {
-      type: 'price',
-      items: [
-        { // min
-          min: 0,
-          max: 10000
-        }, { // max
-          min: 0,
-          max: 10000
-        }
-      ],
-      default: [1000, 6000],
-      selected: ['', '']
-    }],
+    contentItems: [
+      {
+        type: 'single',
+        items: ['选项一', '选项二', '选项三', '选项四'],
+        selected: ''
+      }, 
+      {
+        type: 'double',
+        items: [['选项一', '选项二', '选项三', '选项四'], ['选项一', '选项二', '选项三', '选项四']],
+        selected: ['', '']
+      }, 
+      {
+        type: 'triple',
+        items: [
+          ['选项一', '选项二', '选项三', '选项四'], 
+          {
+            '选项一': ['选项一', '选项二', '选项三', '选项四', '选项五'], 
+            '选项二': ['选项一', '选项二', '选项三', '选项四'], 
+            '选项三': ['选项一', '选项二', '选项三', '选项四'], 
+            '选项四': ['选项一', '选项二', '选项三', '选项四']
+          }, 
+          {
+            '选项一': ['选项一', '选项二', '选项三', '选项四'], 
+            '选项二': ['选项二', '选项三', '选项四'], 
+            '选项三': ['选项一', '选项三', '选项四'], 
+            '选项四': ['选项一', '选项二', '选项三', '选项四'],
+            '选项五': ['选项一', '选项二', '选项三']
+          }],
+        selected: ['', '', '']
+      }, 
+      {
+        type: 'price',
+        items: [
+          { // min
+            min: 0,
+            max: 10000
+          }, { // max
+            min: 0,
+            max: 10000
+          }
+        ],
+        default: [1000, 6000],
+        selected: ['', '']
+      }
+    ],
   },
-  props: {},
-  didMount() {},
-  didUpdate() {},
-  didUnmount() {},
+  didMount: function () {
+    this.setData({
+      titleItems: this.props.titleItems,
+      contentItems: this.props.contentItems
+    })
+  },
+  didUpdate: function () {},
+  didUnmount: function () {},
   methods: {
     //////////////////////////////////////////////////////
     // 菜单选择
