@@ -83,13 +83,27 @@ Component({
       contentItems: this.props.contentItems
     })
   },
+  /**
+   * @调用逻辑
+   * 
+   * 组件内部调用 this.setData 会触发
+   * 外部调用者调用 this.setData 也会触发
+   * 
+   * 默认 items 数量变化才会触发 实际的数据刷新
+   */
   didUpdate: function (prevProps, prevData) {
-    __enable_logging__ && console.log('<filters> params did updated');
+    if (prevProps.titleItems != this.props.titleItems ||
+      prevProps.contentItems != this.props.contentItems ||
+      prevProps.titleItems.length != this.props.titleItems.length ||
+      prevProps.contentItems.length != this.props.contentItems.length) {
+        __enable_logging__ && console.log('<filters> params did updated');
 
-    this.setData({
-      titleItems: this.props.titleItems,
-      contentItems: this.props.contentItems
-    })
+        this.setData({
+          titleItems: this.props.titleItems,
+          contentItems: this.props.contentItems
+        })
+    }
+    
   },
   didUnmount: function () {},
   methods: {

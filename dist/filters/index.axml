@@ -1,3 +1,5 @@
+<import-sjs name="pipe" from="./index.sjs"/>
+
 <!-- 下拉筛选框 -->
 <view class="jx-filter-page {{className}}">
 
@@ -18,8 +20,8 @@
       a:for-item="item"
       data-idx="{{idx}}"
       onTap='onSingleSelectItem'  
-      class="table item-text {{itemSetting.selected == item ? 'item-selected' : 'item-normal' }}">
-      {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
+      class="table item-text {{ pipe.compareItem(itemSetting, item) ? 'item-selected' : 'item-normal' }}">
+      {{ pipe.pickItem(itemSetting, item) }}
     </view>
   </view>
   <view class="jx-filter-mask {{ showMask ? 'opacity' : ''}}" onTap="onMaskTap"></view>
@@ -33,10 +35,10 @@
         a:for="{{itemSetting.items[0]}}"
         a:for-index="idx" 
         a:for-item="item"
-        class="{{ itemSetting.selected[0] == item ? 'active' : ''}}"
+        class="{{ pipe.compareItems(itemSetting, 0, item) ? 'active' : ''}}"
         onTap="onTripleSelectLeft" 
         data-item='{{item}}'>
-        {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
+        {{ pipe.pickItem(itemSetting, item) }}
       </view>
     </view>
 
@@ -45,10 +47,10 @@
         a:for="{{ itemSetting.items[1][itemSetting.selected[0]] }}"
         a:for-index="idx" 
         a:for-item="item"
-        class="{{ itemSetting.selected[1] == item ? 'active' : '' }}"
+        class="{{ pipe.compareItems(itemSetting, 1, item) ? 'active' : '' }}"
         onTap="onTripleSelectCenter" 
         data-item='{{item}}'>
-        {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
+        {{ pipe.pickItem(itemSetting, item) }}
       </view>
     </view>
 
@@ -58,11 +60,11 @@
         a:for="{{ itemSetting.items[2][itemSetting.selected[1]] }}"
         a:for-index="idx" 
         a:for-item="item"
-        class="{{ itemSetting.selected[2] == item ? 'active' : '' }}" 
+        class="{{ pipe.compareItems(itemSetting, 2, item) ? 'active' : '' }}" 
         onTap='onTripleSelectRight' 
         data-item="{{item}}">
         <label>
-          {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
+          {{ pipe.pickItem(itemSetting, item) }}
         </label>
         <!-- <image src='/images/selectRight.png' style="{{select3 == index?'display:block':'display:none'}}"></image> -->
       </view>
