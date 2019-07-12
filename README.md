@@ -100,7 +100,29 @@
 
 ### filters
 
+![一维条目筛选](res/filters/single.jpg)
+![三维条目筛选](res/filters/triple.jpg)
+![价格区间筛选](res/filters/price.jpg)
 
+```json
+{
+  "usingComponents": {
+    "filters-bar": "jx-mini-antui/dist/filters/index"
+  }
+}
+```
+
+
+```xml
+
+```
+
+
+```css
+.filters-bar {
+
+}
+```
 
 ### tabs
 

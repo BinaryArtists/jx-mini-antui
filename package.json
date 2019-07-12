@@ -1,6 +1,6 @@
 {
   "name": "jx-mini-antui",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "Extends mini-antui.",
   "main": "index.js",
   "scripts": {
