@@ -51,7 +51,7 @@ Component({
     onClick: function (e) {
     },
     onBtnClicked: function (e) {
-      var onButtonClicked = this.props.onBtnClick;
+      var onButtonClicked = this.props.onButtonClicked;
 
       onButtonClicked && onButtonClicked(e.target.dataset, this.props.data)
     }

@@ -1,11 +1,13 @@
+var __enable_logging__ = false;
+
 Component({
   mixins: [],
   // 入参
   props: {
+    className: '',
+
     titleItems: [],
     contentItems: [],
-    title:'提示',
-    buttons:[ { type: 'minor', title: '确定', event: 'confirmed' } ],
 
     onChange: function (itemSetting) {},
   },
@@ -21,21 +23,20 @@ Component({
 
     itemSetting: {},
 
-    priceRangeItems: [], // 价格区间设定值
-    priceRangeLimitationItems: [], // 价格区间限制
-
     // content 内容区域 数据
 
-    titleItems: ['全部分类', '比赛日期', '地区', '价格区间'],
-    contentItems: [
+    titleItemsSample: ['全部分类', '比赛日期', '地区', '价格区间'],
+    contentItemsSample: [
       {
         type: 'single',
         items: ['选项一', '选项二', '选项三', '选项四'],
+        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
         selected: ''
       }, 
       {
         type: 'double',
         items: [['选项一', '选项二', '选项三', '选项四'], ['选项一', '选项二', '选项三', '选项四']],
+        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
         selected: ['', '']
       }, 
       {
@@ -55,6 +56,7 @@ Component({
             '选项四': ['选项一', '选项二', '选项三', '选项四'],
             '选项五': ['选项一', '选项二', '选项三']
           }],
+        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
         selected: ['', '', '']
       }, 
       {
@@ -74,12 +76,21 @@ Component({
     ],
   },
   didMount: function () {
+    __enable_logging__ && console.log('<filters> params did mount');
+
     this.setData({
       titleItems: this.props.titleItems,
       contentItems: this.props.contentItems
     })
   },
-  didUpdate: function () {},
+  didUpdate: function (prevProps, prevData) {
+    __enable_logging__ && console.log('<filters> params did updated');
+
+    this.setData({
+      titleItems: this.props.titleItems,
+      contentItems: this.props.contentItems
+    })
+  },
   didUnmount: function () {},
   methods: {
     //////////////////////////////////////////////////////
@@ -89,7 +100,7 @@ Component({
     onTitleItem: function (e) {
       var titleSelectIdx = e.currentTarget.dataset.nav;
 
-      console.log('selec idx = '+titleSelectIdx)
+      __enable_logging__ && console.log('selec idx = '+titleSelectIdx)
 
       this.initSelectSetting(titleSelectIdx);
 
@@ -110,9 +121,9 @@ Component({
 
     renderSelectList: function (idx) {
       var itemSetting = this.data.contentItems[idx];
-      var type = itemSetting.type;
+      // var type = itemSetting.type;
 
-      console.log('render items = '+JSON.stringify(itemSetting.items))
+      __enable_logging__ && console.log('render items = '+JSON.stringify(itemSetting.items))
 
       if (idx == this.data.titleIdx) {
         // 收起
@@ -157,11 +168,12 @@ Component({
 
       itemSetting.selected = itemSetting.items[itemSelectIdx];
 
-      console.log('itemSetting = '+JSON.stringify(itemSetting))
+      __enable_logging__ && console.log('itemSetting = '+JSON.stringify(itemSetting))
 
       this.onMaskTap();
-    },
 
+      this.onNotify();
+    },
 
     //////////////////////////////////////////////////////
     // 三维条目选择
@@ -170,7 +182,7 @@ Component({
     onTripleSelectLeft: function (e) {
       var item = e.target.dataset.item;
 
-      console.log('[三维] 左边选择 = ' + item);
+      __enable_logging__ && console.log('[三维] 左边选择 = ' + item);
 
       var itemSetting = this.data.itemSetting;
 
@@ -181,13 +193,13 @@ Component({
         itemSetting: itemSetting
       });
 
-      console.log('[三维] 左边 - 次级选项 = ' + itemSetting.items[1][itemSetting.selected[0]])
+      __enable_logging__ && console.log('[三维] 左边 - 次级选项 = ' + itemSetting.items[1][itemSetting.selected[0]])
     },
 
     onTripleSelectCenter: function (e) {
       var item = e.target.dataset.item;
 
-      console.log('[三维] 中间选择 = ' + item);
+      __enable_logging__ && console.log('[三维] 中间选择 = ' + item);
 
       var itemSetting = this.data.itemSetting;
 
@@ -202,7 +214,7 @@ Component({
     onTripleSelectRight: function (e) {
       var item = e.target.dataset.item;
 
-      console.log('[三维] 右边选择 = ' + item);
+      __enable_logging__ && console.log('[三维] 右边选择 = ' + item);
 
       var itemSetting = this.data.itemSetting;
 
@@ -226,7 +238,7 @@ Component({
     onTripleSelectSubmit: function () {
       var itemSetting = this.data.itemSetting;
 
-      console.log('选择的三级选项是：' + itemSetting.selected);
+      __enable_logging__ && console.log('选择的三级选项是：' + itemSetting.selected);
 
       // 隐藏地铁区域下拉框
       this.setData({
@@ -234,7 +246,9 @@ Component({
 
         optionsShow: false,
         showMask: false,
-      })
+      });
+
+      this.onNotify();
     },
 
     //////////////////////////////////////////////////////
@@ -242,11 +256,9 @@ Component({
     //////////////////////////////////////////////////////
 
     onPriceMinChange: function (e) {
-      console.log('左值为：' + e.detail.value);
+      __enable_logging__ && console.log('左值为：' + e.detail.value);
 
-      let currentValue = parseInt(e.detail.value);
-      // let currentPer = parseInt(currentValue)
-
+      var currentValue = parseInt(e.detail.value);
       var itemSetting = this.data.itemSetting;
 
       itemSetting.selected[0] = currentValue;
@@ -256,10 +268,9 @@ Component({
       });
     },
     onPriceMaxChange: function (e) {
-      console.log('右值为：' + e.detail.value);
+      __enable_logging__ && console.log('右值为：' + e.detail.value);
 
-      let currentValue = parseInt(e.detail.value);
-      
+      var currentValue = parseInt(e.detail.value);
       var itemSetting = this.data.itemSetting;
 
       itemSetting.selected[1] = currentValue;
@@ -282,7 +293,26 @@ Component({
         optionsShow: true,
         showMask: false,
         titleIdx: -1
-      })
+      });
+
+      this.onNotify();
+    },
+
+    //////////////////////////////////////////////////////
+    // 回调通知
+    //////////////////////////////////////////////////////
+
+    onNotify: function () {
+      var results = this.data.contentItems.map(function (is) { // item setting
+
+        return is.selected;
+      });
+
+      __enable_logging__ && console.log('results = '+JSON.stringify(results));
+
+      // 通知
+      var onChange = this.props.onChange;
+      onChange && onChange(results);
     }
   },
 });

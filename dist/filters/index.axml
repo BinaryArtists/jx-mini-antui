@@ -1,5 +1,5 @@
 <!-- 下拉筛选框 -->
-<view class="jx-filter-page">
+<view class="jx-filter-page {{className}}">
 
   <view class="jx-filter-title">
     <block a:for="{{titleItems}}" a:for-index="idx" a:for-item="item">
@@ -19,7 +19,7 @@
       data-idx="{{idx}}"
       onTap='onSingleSelectItem'  
       class="table item-text {{itemSetting.selected == item ? 'item-selected' : 'item-normal' }}">
-      {{item}}
+      {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
     </view>
   </view>
   <view class="jx-filter-mask {{ showMask ? 'opacity' : ''}}" onTap="onMaskTap"></view>
@@ -36,7 +36,7 @@
         class="{{ itemSetting.selected[0] == item ? 'active' : ''}}"
         onTap="onTripleSelectLeft" 
         data-item='{{item}}'>
-        {{item}}
+        {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
       </view>
     </view>
 
@@ -48,7 +48,7 @@
         class="{{ itemSetting.selected[1] == item ? 'active' : '' }}"
         onTap="onTripleSelectCenter" 
         data-item='{{item}}'>
-        {{item}}
+        {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
       </view>
     </view>
 
@@ -61,7 +61,9 @@
         class="{{ itemSetting.selected[2] == item ? 'active' : '' }}" 
         onTap='onTripleSelectRight' 
         data-item="{{item}}">
-        <label>{{item}}</label>
+        <label>
+          {{itemSetting.keypath ? item[itemSetting.keypath] : item}}
+        </label>
         <!-- <image src='/images/selectRight.png' style="{{select3 == index?'display:block':'display:none'}}"></image> -->
       </view>
     </view>
