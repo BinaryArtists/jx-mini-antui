@@ -1,6 +1,7 @@
 # 组件使用
 
-### JS 写法注意
+JS 写法注意
+------
 
 ```
 // 1. No 'const'
@@ -11,7 +12,8 @@
 // 4. No 'let { a } = data'
 ```
 
-### dialog
+对话框
+------
 
 ```json
 {
@@ -34,7 +36,8 @@
 </dialog>
 ```
 
-### comfirm
+确认框
+------
 
 ```json
 {
@@ -71,7 +74,8 @@
 </confirm-popup>
 ```
 
-### filter 
+筛选栏 
+------
 
 ```css
 
@@ -98,7 +102,9 @@
 <filter-bar className="filter-bar" />
 ```
 
-### filters
+牛逼的筛选栏
+------
+
 
 ![一维条目筛选](res/filters/single.jpg)
 ![三维条目筛选](res/filters/triple.jpg)
@@ -184,7 +190,8 @@ filterItems: [
 }
 ```
 
-### tabs
+选项卡
+------
 
 ```json
 {
