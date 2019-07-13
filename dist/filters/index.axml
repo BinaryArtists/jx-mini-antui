@@ -1,6 +1,7 @@
 <import-sjs name="pipe" from="./index.sjs"/>
 
 <!-- 下拉筛选框 -->
+<!-- <view class="jx-filter-page {{className}}" disable-scroll="{{disableScroll}}"> -->
 <view class="jx-filter-page {{className}}">
 
   <view class="jx-filter-title">
@@ -24,7 +25,6 @@
       {{ pipe.pickItem(itemSetting, item) }}
     </view>
   </view>
-  <view class="jx-filter-mask {{ showMask ? 'opacity' : ''}}" onTap="onMaskTap"></view>
 
   <!-- 三维条目筛选 -->
   <!-- 未调整 -->
@@ -115,4 +115,12 @@
     </view>
 
   </view>
+
+<!-- disable-scroll="{{disableScroll}}" -->
+  <view 
+    class="jx-filter-mask {{ showMask ? 'show-mask' : ''}}" 
+    onTap="onMaskTap" 
+    catchTap="onMaskTap" 
+    
+    hover-stop-propagation="{{true}}"></view>
 </view>

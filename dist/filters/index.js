@@ -5,6 +5,7 @@ Component({
   // 入参
   props: {
     className: '',
+    disableScroll: true,
 
     titleItems: [],
     contentItems: [],

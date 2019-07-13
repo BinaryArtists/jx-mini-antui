@@ -1,16 +1,16 @@
 .jx-filter-page {
   font-family: PingFangSC-Medium;
-  height: 100%;
-  background: transparent;
-  overflow: hidden;
+  /* height: 100%; */
+  /* background: transparent; */
+  /* overflow: hidden; */
 }
 
 .jx-filter-title {
   position: relative;
-  z-index: 99;
+  z-index: 10;
   display: flex;
   border-bottom: 1rpx solid #f4f4f4;
-  background: #fff;
+  background-color: #fff;
 }
 
 .jx-filter-title-item {
@@ -39,7 +39,7 @@
 
 .jx-filter-content {
   position: relative;
-  z-index: 4;
+  z-index: 9;
   background: #fff;
   display: none;
   width: 100%;
@@ -58,18 +58,24 @@
 
 .jx-filter-mask {
   position: fixed;
-  top: 132rpx;
-  z-index: 1;
-  width: 100%;
+  display: none;
+  top: 0rpx;
+  z-index: 8;
+  left: 0rpx;
+  right: 0rpx;
+  /* bottom: 0rpx; */
   height: 100%;
-  background: rgb(1, 1, 1);
-  transition: all 0.15s;
+  background-color: rgba(0, 0, 0, .75);
   opacity: 0;
-  pointer-events: none;
+  overflow-y: none;
+
+  transition: all 0.15s linear;
 }
 
-.jx-filter-mask.opacity {
-  opacity: 0.5;
+.jx-filter-mask.show-mask {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .jx-filter-title-item.active .title-text {
@@ -92,7 +98,6 @@
   }
 }
 
-/* .jx-filter-content */
 .slidown {
   display: block;
   animation: slidown 0.15s ease-in both;
