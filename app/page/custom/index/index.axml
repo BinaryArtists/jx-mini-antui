@@ -1,0 +1,9 @@
+<view>
+  <card
+    title="牛逼的筛选栏"
+    subTitle="支持一维、二维、三维条目筛选，价格区间选择"
+    onClick="onFiltersTap"
+    info="点击了牛逼的筛选栏"
+  />
+  <view style="margin-top: 10px;" />
+</view>

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "牛逼的筛选栏",
+  "usingComponents": {
+    "filters-bar": "jx-mini-antui/dist/filters/index",
+    "card": "mini-antui/es/card/index",
+    "list": "mini-antui/es/list/index",
+    "list-item": "mini-antui/es/list/list-item/index"
+  }
+}

@@ -127,7 +127,9 @@
     "page/API/create-inner-audiocontext/create-inner-audiocontext",
     "page/API/get-background-audio-manager/get-background-audio-manager",
     "page/API/get-title-color/get-title-color",
-    "page/API/start-zm-verify/start-zm-verify"
+    "page/API/start-zm-verify/start-zm-verify",
+    "page/custom/index/index",
+    "page/custom/filters/filters"
   ],
   "window": {
     "enableWK": "YES",
@@ -156,9 +158,9 @@
         "name": "API"
       },
       {
-        "pagePath": "page/API/index/index",
-        "icon": "image/icon_API.png",
-        "activeIcon": "image/icon_API_HL.png",
+        "pagePath": "page/custom/index/index",
+        "icon": "image/icon_plan.png",
+        "activeIcon": "image/icon_plan_active.png",
         "name": "Custom"
       }
     ]
