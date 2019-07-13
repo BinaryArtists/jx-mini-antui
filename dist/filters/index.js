@@ -138,7 +138,7 @@ Component({
       titleSelectItems[this.data.titleIdx] = itemSetting.selected;
 
       this.setData({
-        titleSelectItems
+        titleSelectItems: titleSelectItems
       });
 
       __enable_logging__ && console.log('itemSetting = '+JSON.stringify(itemSetting))
@@ -199,7 +199,7 @@ Component({
       titleSelectItems[this.data.titleIdx] = item;
 
       this.setData({
-        titleSelectItems,
+        titleSelectItems: titleSelectItems,
         itemSetting: itemSetting
       });
     },
