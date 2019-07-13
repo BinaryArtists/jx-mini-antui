@@ -180,8 +180,8 @@ filterItems: [
 
 
 ```css
-/** title's z-index = 10, content's z-index=9, mask's z-index=8 */
-
+/* title's z-index = 10, content's z-index=9, mask's z-index=8 */
+/* 父级不可使用 overflow: hidden; */
 .filters-bar {
   position: sticky;
   top: 0;
