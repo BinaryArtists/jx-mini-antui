@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jx-mini-antui": "^0.2.22",
+    "jx-mini-antui": "^0.2.24",
     "mini-antui": "^0.4.2"
   }
 }

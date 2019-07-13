@@ -16,6 +16,7 @@ Component({
   data: {
     // 样式控制
     titleIdx: -1,
+    titleSelectItems: [null, null, null, null, null, null, null, null, null, null, null, null, null],
 
     showMask: false,
 
@@ -131,6 +132,15 @@ Component({
 
       itemSetting.selected = itemSetting.items[itemSelectIdx];
 
+      // 更新筛选菜单 title
+      var titleSelectItems = this.data.titleSelectItems;
+
+      titleSelectItems[this.data.titleIdx] = itemSetting.selected;
+
+      this.setData({
+        titleSelectItems
+      });
+
       __enable_logging__ && console.log('itemSetting = '+JSON.stringify(itemSetting))
 
       this.onMaskTap();
@@ -183,7 +193,13 @@ Component({
 
       itemSetting.selected[2] = item;
 
+      // 更新筛选菜单 title
+      var titleSelectItems = this.data.titleSelectItems;
+
+      titleSelectItems[this.data.titleIdx] = item;
+
       this.setData({
+        titleSelectItems,
         itemSetting: itemSetting
       });
     },
@@ -252,11 +268,7 @@ Component({
     },
   
     onPriceSelectCommit: function () {
-      this.setData({
-        optionsShow: true,
-        showMask: false,
-        titleIdx: -1
-      });
+      this.onMaskTap();
 
       this.onNotify();
     },

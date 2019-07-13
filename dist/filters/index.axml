@@ -3,13 +3,11 @@
 <!-- 下拉筛选框 -->
 <!-- <view class="jx-filter-page {{className}}" disable-scroll="{{disableScroll}}"> -->
 <view class="jx-filter-page {{className}}">
-
   <view class="jx-filter-title">
     <block a:for="{{titleItems}}" a:for-index="idx" a:for-item="item">
       <view class="jx-filter-title-item {{(titleIdx == idx) && optionsShow ? 'active' : ''}}" onTap="onTitleItem" data-nav="{{idx}}">
-        <view class="title-text">{{ pipe.pickTitle(contentItems, idx, item) }}</view>
-        <!-- <image mode="scaleToFill" src="/packageLianbei/assets/remove.png" class="remove"/> -->
-        <view class="icon"></view>
+        <view class="title-text">{{ pipe.pickTitle(itemSetting, titleSelectItems, idx, item) }}</view>
+        <image class="icon"></image>
       </view>
     </block>
   </view>

@@ -1,17 +1,14 @@
 export default {
-  pickTitle: function (iss, idx, item) {
-    let is = iss[idx];
+  pickTitle: function (is, titleSelectItems, idx, titleItem) {
+    let selected = titleSelectItems[idx];
 
-    if (is.type === 'single') {
-      return is.selected ? is.selected : item;
-    } else if (is.type === 'double' || is.type === 'triple') {
-      let last = is.selected.slice(-1);
-      return last ? last : item;
+    if (is.type === 'single' || is.type === 'double' || is.type === 'triple') {
+      return selected ? (is.keypath ? selected[is.keypath] : selected ) : titleItem;
     } else if (is.type === 'price') {
       
     }
 
-    return item;
+    return titleItem;
   },
 
   pickItem: function (is, item) {

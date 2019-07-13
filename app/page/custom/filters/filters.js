@@ -6,14 +6,14 @@ Page({
       {
         type: 'single',
         items: ['选项一', '选项二', '选项三', '选项四'],
-        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
-        selected: ''
+        keypath: null, // 如果keypath有效，则会对items中的对象进行萃取
+        selected: null
       }, 
       {
         type: 'double',
         items: [['选项一', '选项二', '选项三', '选项四'], ['选项一', '选项二', '选项三', '选项四']],
-        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
-        selected: ['', '']
+        keypath: null, // 如果keypath有效，则会对items中的对象进行萃取
+        selected: [null, null]
       }, 
       {
         type: 'triple',
@@ -32,8 +32,8 @@ Page({
             '选项四': ['选项一', '选项二', '选项三', '选项四'],
             '选项五': ['选项一', '选项二', '选项三']
           }],
-        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
-        selected: ['', '', '']
+        keypath: null, // 如果keypath有效，则会对items中的对象进行萃取
+        selected: [null, null, null]
       }, 
       {
         type: 'price',
@@ -47,7 +47,7 @@ Page({
           }
         ],
         default: [1000, 6000],
-        selected: ['', '']
+        selected: [null, null]
       }
     ],
 
