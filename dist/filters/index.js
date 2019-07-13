@@ -113,9 +113,11 @@ Component({
     },
 
     onMaskTap: function (e) {
+      var titleSelectItems = this.data.titleSelectItems;
+
       this.setData({
         titleIdx: -1,
-
+titleSelectItems: titleSelectItems,
         optionsShow: false,
         showMask: false
       })
@@ -137,9 +139,9 @@ Component({
 
       titleSelectItems[this.data.titleIdx] = itemSetting.selected;
 
-      this.setData({
-        titleSelectItems: titleSelectItems
-      });
+      // this.setData({
+        
+      // });
 
       __enable_logging__ && console.log('itemSetting = '+JSON.stringify(itemSetting))
 

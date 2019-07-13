@@ -2,6 +2,8 @@ export default {
   pickTitle: function (is, titleSelectItems, idx, titleItem) {
     let selected = titleSelectItems[idx];
 
+    if (! selected || !is) return titleItem;
+
     if (is.type === 'single' || is.type === 'double' || is.type === 'triple') {
       return selected ? (is.keypath ? selected[is.keypath] : selected ) : titleItem;
     } else if (is.type === 'price') {

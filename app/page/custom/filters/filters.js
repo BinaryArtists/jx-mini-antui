@@ -10,9 +10,21 @@ Page({
         selected: null
       }, 
       {
-        type: 'double',
-        items: [['选项一', '选项二', '选项三', '选项四'], ['选项一', '选项二', '选项三', '选项四']],
-        keypath: null, // 如果keypath有效，则会对items中的对象进行萃取
+        type: 'single',
+        items: [{
+          name: '选项一',
+          key: 1
+        }, {
+          name: '选项二',
+          key: 2
+        }, {
+          name: '选项三',
+          key: 3
+        }, {
+          name: '选项四',
+          key: 4
+        }],
+        keypath: 'name', // 如果keypath有效，则会对items中的对象进行萃取
         selected: [null, null]
       }, 
       {

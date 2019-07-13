@@ -183,6 +183,7 @@ filterItems: [
 /* title's z-index = 10, content's z-index=9, mask's z-index=8 */
 /* 父级不可使用 overflow: hidden; */
 /* 如果下层列表需要在 mask 状态禁止滑动：则对列表container加
+    overflow: hidden; 需要动态控制
     <view style="overflow: hidden;width: 100vw;height:100vh;"> 
     overflow 实际上会有很多体验上的问题, 后续研究 @TODO
 */
