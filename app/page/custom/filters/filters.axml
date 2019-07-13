@@ -7,10 +7,12 @@
 
 
   <!-- 简单滚动区域 -->
-  <block a:for="{{marginItems}}" >
-    <view style="width: 100vw;height: 200rpx;background-color: red;">{{item+' red'}}</view>
-    <view style="width: 100vw;height: 200rpx;background-color: green;">{{item+' green'}}</view>
-  </block>
+  <view style="overflow: hidden;width: 100vw;height:100vh;">
+    <block a:for="{{marginItems}}" >
+      <view style="width: 100vw;height: 200rpx;background-color: red;">{{item+' red'}}</view>
+      <view style="width: 100vw;height: 200rpx;background-color: green;">{{item+' green'}}</view>
+    </block>
+  </view>
 
 
   <!-- 复杂滚动区域 -->
