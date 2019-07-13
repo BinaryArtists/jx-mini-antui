@@ -217,6 +217,10 @@ Page({
         align: 'middle',
       },
     ],
+
+
+    /// 列表
+    disableScroll: false
   },
   onLoad() {
 
@@ -234,4 +238,14 @@ Page({
     //   items5: newItems,
     // });
   },
+  onFilterFocus () {
+    this.setData({
+      disableScroll: true
+    })
+  },
+  onFilterBlur () {
+    this.setData({
+      disableScroll: false
+    })
+  }
 });

@@ -20,6 +20,10 @@
   color: #000;
 }
 
+.disable-scroll {
+  overflow: hidden;width: 100vw;height:calc(100vh - 81rpx);
+}
+
 .am-list-sticky {
   position: sticky;
   top: 0;

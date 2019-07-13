@@ -11,6 +11,9 @@ Component({
     contentItems: [],
 
     onChange: function (itemSetting) {},
+
+    onFocus: function () { __enable_logging__ && console.log('onFocus') },
+    onBlur: function () { __enable_logging__ && console.log('onBlur') }
   },
   // 视图模型
   data: {
@@ -98,7 +101,7 @@ Component({
 
           optionsShow: false,
           showMask: false,
-        })
+        }, this.props.onBlur)
       } else {
         // 展开
         this.setData({
@@ -108,7 +111,7 @@ Component({
 
           optionsShow: true,
           showMask: true,
-        })
+        }, this.props.onFocus)
       }
     },
 
@@ -120,7 +123,7 @@ Component({
 titleSelectItems: titleSelectItems,
         optionsShow: false,
         showMask: false
-      })
+      }, this.props.onBlur)
     },
 
     //////////////////////////////////////////////////////

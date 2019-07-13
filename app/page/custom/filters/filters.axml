@@ -3,11 +3,14 @@
     className="filters-bar" 
     titleItems="{{filterTitles}}" 
     contentItems="{{filterItems}}" 
-    onChange="onFilterChange" />
+    onChange="onFilterChange" 
+    onFocus="onFilterFocus"
+    onBlur="onFilterBlur"
+    />
 
 
   <!-- 简单滚动区域 -->
-  <view style="overflow: hidden;width: 100vw;height:100vh;">
+  <view class="{{ disableScroll ? 'disable-scroll' : ''}}">
     <block a:for="{{marginItems}}" >
       <view style="width: 100vw;height: 200rpx;background-color: red;">{{item+' red'}}</view>
       <view style="width: 100vw;height: 200rpx;background-color: green;">{{item+' green'}}</view>
