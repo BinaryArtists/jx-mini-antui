@@ -23,58 +23,6 @@ Component({
     optionsShow: false,
 
     itemSetting: {},
-
-    // content 内容区域 数据
-
-    titleItemsSample: ['全部分类', '比赛日期', '地区', '价格区间'],
-    contentItemsSample: [
-      {
-        type: 'single',
-        items: ['选项一', '选项二', '选项三', '选项四'],
-        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
-        selected: ''
-      }, 
-      {
-        type: 'double',
-        items: [['选项一', '选项二', '选项三', '选项四'], ['选项一', '选项二', '选项三', '选项四']],
-        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
-        selected: ['', '']
-      }, 
-      {
-        type: 'triple',
-        items: [
-          ['选项一', '选项二', '选项三', '选项四'], 
-          {
-            '选项一': ['选项一', '选项二', '选项三', '选项四', '选项五'], 
-            '选项二': ['选项一', '选项二', '选项三', '选项四'], 
-            '选项三': ['选项一', '选项二', '选项三', '选项四'], 
-            '选项四': ['选项一', '选项二', '选项三', '选项四']
-          }, 
-          {
-            '选项一': ['选项一', '选项二', '选项三', '选项四'], 
-            '选项二': ['选项二', '选项三', '选项四'], 
-            '选项三': ['选项一', '选项三', '选项四'], 
-            '选项四': ['选项一', '选项二', '选项三', '选项四'],
-            '选项五': ['选项一', '选项二', '选项三']
-          }],
-        keypath: '', // 如果keypath有效，则会对items中的对象进行萃取
-        selected: ['', '', '']
-      }, 
-      {
-        type: 'price',
-        items: [
-          { // min
-            min: 0,
-            max: 10000
-          }, { // max
-            min: 0,
-            max: 10000
-          }
-        ],
-        default: [1000, 6000],
-        selected: ['', '']
-      }
-    ],
   },
   didMount: function () {
     __enable_logging__ && console.log('<filters> params did mount');

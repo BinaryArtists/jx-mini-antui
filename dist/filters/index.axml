@@ -7,7 +7,8 @@
   <view class="jx-filter-title">
     <block a:for="{{titleItems}}" a:for-index="idx" a:for-item="item">
       <view class="jx-filter-title-item {{(titleIdx == idx) && optionsShow ? 'active' : ''}}" onTap="onTitleItem" data-nav="{{idx}}">
-        <view class="title-text">{{ titleSelectItems[idx] ? titleSelectItems[idx] : item}}</view>
+        <view class="title-text">{{ pipe.pickTitle(contentItems, idx, item) }}</view>
+        <!-- <image mode="scaleToFill" src="/packageLianbei/assets/remove.png" class="remove"/> -->
         <view class="icon"></view>
       </view>
     </block>
