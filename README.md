@@ -180,7 +180,7 @@ filterItems: [
   position: sticky;
   top: 0;
   background-color: #fff;
-  z-index: 2;
+  height: 81rpx;
 }
 ```
 

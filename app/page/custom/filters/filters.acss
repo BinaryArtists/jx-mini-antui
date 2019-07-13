@@ -2,6 +2,8 @@
   width: 100%;
   position: sticky;
   top: 0;
+  height: 81rpx;
+  /* overflow: hidden; */
 }
 
 .dyt-list {

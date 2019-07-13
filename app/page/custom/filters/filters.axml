@@ -1,17 +1,15 @@
 <view>
-  <!-- <view class="fb"> -->
-    <filters-bar 
-      className="filters-bar" 
-      titleItems="{{filterTitles}}" 
-      contentItems="{{filterItems}}" 
-      onChange="onFilterChange" />
-  <!-- </view> -->
+  <filters-bar 
+    className="filters-bar" 
+    titleItems="{{filterTitles}}" 
+    contentItems="{{filterItems}}" 
+    onChange="onFilterChange" />
 
 
   <!-- 简单滚动区域 -->
   <block a:for="{{marginItems}}" >
-				<view style="width: 100vw;height: 200rpx;background-color: red;">{{item+' red'}}</view>
-        <view style="width: 100vw;height: 200rpx;background-color: green;">{{item+' green'}}</view>
+    <view style="width: 100vw;height: 200rpx;background-color: red;">{{item+' red'}}</view>
+    <view style="width: 100vw;height: 200rpx;background-color: green;">{{item+' green'}}</view>
   </block>
 
 
