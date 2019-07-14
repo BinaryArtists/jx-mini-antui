@@ -10,17 +10,18 @@
 
 
   <!-- 简单滚动区域 -->
-  <view class="{{ disableScroll ? 'disable-scroll' : ''}}">
+
+  <!-- <view class="{{ disableScroll ? 'disable-scroll' : ''}}">
     <block a:for="{{marginItems}}" >
       <view style="width: 100vw;height: 200rpx;background-color: red;">{{item+' red'}}</view>
       <view style="width: 100vw;height: 200rpx;background-color: green;">{{item+' green'}}</view>
     </block>
-  </view>
+  </view> -->
 
 
   <!-- 复杂滚动区域 -->
 <!-- style="height: 100vh;" -->
-  <!-- <scroll-view  scroll-y onScrollToLower="onScrollToLower">
+  <scroll-view  scroll-y onScrollToLower="onScrollToLower">
 		<list>
 			<view slot="header">
 				列表头部
@@ -173,6 +174,6 @@
 			<view slot="footer">
 				列表尾部
 			</view>
-		</list> -->
-	<!-- </scroll-view> -->
+		</list>
+	</scroll-view>
 </view>
