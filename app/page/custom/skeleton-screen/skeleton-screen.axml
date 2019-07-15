@@ -10,8 +10,6 @@
 
   <!--index.wxml-->
   <view class="container sk">
-    <!-- <component-tag-name></component-tag-name> -->
-
     <view class="userbanner sk-layer">
       <view class="banner-item sk-rect-12"></view>
     </view>
@@ -30,7 +28,5 @@
         <view class="line sk-line"></view>
       </view>
     </view>
-
-
   </view>
 </view>

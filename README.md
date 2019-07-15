@@ -251,6 +251,28 @@ filterItems: [
   top='0'
   loading="chiaroscuro" 
   a:if="{{showSkeleton}}"/>
+
+<!-- 关注 sk -->
+<view class="container sk">
+  <view class="userbanner sk-layer">
+    <view class="banner-item sk-rect-12"></view>
+  </view>
+
+  <view class="userinfo sk-layer">
+    <block> 
+      <image class="userinfo-avatar sk-circle" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname sk-rect">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="useritems sk-layer-6">
+    <view a:for="{{lists}}" a:for-index="index" class="lists">
+      <icon type="success" size="20" class="head sk-circle"/>
+      <text class="text sk-rect">{{item}}</text>
+      <view class="line sk-line"></view>
+    </view>
+  </view>
+</view>
 ```
 
 ```js
