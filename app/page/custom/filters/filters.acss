@@ -32,7 +32,7 @@
   position: sticky;
   top: 0;
   height: 81rpx;
-  z-index: 3;
+  /* z-index: 3; */
   /* overflow: hidden; */
 }
 
@@ -52,14 +52,12 @@
 
 .disable-scroll {
   width: 100vw;
-  /* overflow: hidden; */
+  overflow: hidden;
   
-
+  /* height: calc(100vh - {{scrollRectTop}}rpx); */
+  /* clip: rect({{scrollRectTop}}, 0, 0, 0); */
 
   /* clip: rect(top, right, bottom, left); */
-  clip: rect(200rpx, 0, 0, 0);
-  /* position: absolute; */
-  /* bottom: 0rpx; */
 }
 
 .am-list-sticky {

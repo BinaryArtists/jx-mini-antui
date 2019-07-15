@@ -254,7 +254,7 @@ Page({
       console.log(ret);
 
       var filtersBarFrame = ret[0];
-      var scrollRectTop = filtersBarFrame.bottom * 2;
+      var scrollRectTop = filtersBarFrame.bottom;
 
       self.setData({
         scrollRectTop,
