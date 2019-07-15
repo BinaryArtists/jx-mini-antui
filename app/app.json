@@ -129,7 +129,8 @@
     "page/API/get-title-color/get-title-color",
     "page/API/start-zm-verify/start-zm-verify",
     "page/custom/index/index",
-    "page/custom/filters/filters"
+    "page/custom/filters/filters",
+    "page/custom/skeleton-screen/skeleton-screen"
   ],
   "window": {
     "enableWK": "YES",
