@@ -27,6 +27,7 @@
       <view a:for="{{lists}}" a:for-index="index" class="lists">
         <icon type="success" size="20" class="head sk-circle"/>
         <text class="text sk-rect">{{item}}</text>
+        <view class="line sk-line"></view>
       </view>
     </view>
 

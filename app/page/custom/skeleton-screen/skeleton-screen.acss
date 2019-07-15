@@ -67,3 +67,9 @@
   line-height: 50rpx;
   color: #aaa;
 }
+.line {
+  width: 80%;
+  border: 1rpx solid #EDEDED;
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+}

@@ -26,13 +26,13 @@ Page({
       'qweqwtefhfhgmjdfgdfh',
       'qw',
 		],
-		showSkeleton: true
+		showSkeleton: false
 	},
 	onLoad: function () {
 		const that = this;
 		setTimeout(() => {
 			that.setData({
-				// showSkeleton: false
+				showSkeleton: false
 			})
 		}, 4000)
 	}
