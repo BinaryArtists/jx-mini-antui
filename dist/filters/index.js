@@ -33,7 +33,8 @@ Component({
 
     this.setData({
       titleItems: this.props.titleItems,
-      contentItems: this.props.contentItems
+      contentItems: this.props.contentItems,
+      titleSelectItems: [null, null, null, null, null, null, null, null, null, null, null, null, null]
     })
   },
   /**
