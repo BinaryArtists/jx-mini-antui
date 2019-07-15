@@ -86,7 +86,7 @@
         a:for-item="t">
         <view 
           style="
-            width: {{t.frame.width}}px; 
+            width: {{t.frame.width}}px;
             border: 1rpx solid {{lineColor}};
             position: absolute; 
             left: {{t.frame.left}}px; 
