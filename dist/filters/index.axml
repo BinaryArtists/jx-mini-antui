@@ -1,7 +1,6 @@
 <import-sjs name="pipe" from="./index.sjs"/>
 
 <!-- 下拉筛选框 -->
-<!-- <view class="jx-filter-page {{className}}" disable-scroll="{{disableScroll}}"> -->
 <view class="jx-filter-page {{className}}">
   <view class="jx-filter-title">
     <block a:for="{{titleItems}}" a:for-index="idx" a:for-item="item">
@@ -115,11 +114,11 @@
 
   </view>
 
-<!-- disable-scroll="{{disableScroll}}" -->
   <view 
     class="jx-filter-mask {{ showMask ? 'show-mask' : ''}}" 
     onTap="onMaskTap" 
     catchTap="onMaskTap" 
+    disable-scroll="{{disableScroll}}"
     
     hover-stop-propagation="{{true}}"></view>
 </view>

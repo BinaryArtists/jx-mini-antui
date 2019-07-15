@@ -28,12 +28,15 @@
 }
 
 .filters-bar {
+  height: 100%;
+}
+.filters-wrapper {
   width: 100%;
+  background-color: transparent;
   position: sticky;
-  top: 0;
+  top: 0rpx;
+  z-index: 4;
   height: 81rpx;
-  /* z-index: 3; */
-  /* overflow: hidden; */
 }
 
 .dyt-list {

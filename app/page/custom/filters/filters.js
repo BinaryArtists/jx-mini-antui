@@ -249,8 +249,8 @@ Page({
 
     var self = this;
 
-     my.createSelectorQuery()
-      .select('.filters-bar').boundingClientRect().exec((ret) => {
+    my.createSelectorQuery()
+      .select('.filters-wrapper').boundingClientRect().exec((ret) => {
       console.log(ret);
 
       var filtersBarFrame = ret[0];
