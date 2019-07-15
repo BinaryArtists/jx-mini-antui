@@ -26,6 +26,21 @@ Page({
       'qweqwtefhfhgmjdfgdfh',
       'qw',
 		],
+    tabs: [
+      {
+        title: '选项',
+      },
+      {
+        title: '选项二'
+      },
+      { title: '3 Tab' },
+      { title: '4 Tab' },
+      { title: '5 Tab' },
+    ],
+
+    skies: [
+      { type: 'rect', frame: { width: 375, height: 23, top: 360, left: 20 } , radius: 0 }
+    ],
 		showSkeleton: true
 	},
 	onLoad: function () {

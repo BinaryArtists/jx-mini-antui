@@ -5,10 +5,9 @@
     left='0' 
     top='0'
     loading="chiaroscuro" 
+    skies="{{skies}}"
     a:if="{{showSkeleton}}"/>
 
-
-  <!--index.wxml-->
   <view class="container sk">
     <view class="userbanner sk-layer">
       <view class="banner-item sk-rect-12"></view>
@@ -20,6 +19,15 @@
         <text class="userinfo-nickname sk-rect">{{userInfo.nickName}}</text>
       </block>
     </view>
+
+    <view style="margin-top: 40rpx;" ></view>
+    <tabs
+      className="sk-layer"
+      tabs="{{tabs}}"
+      activeTab="{{1}}"
+    >
+
+    </tabs>
 
     <view class="useritems sk-layer-6">
       <view a:for="{{lists}}" a:for-index="index" class="lists">

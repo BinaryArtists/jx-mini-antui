@@ -9,12 +9,15 @@
  *  - rect
  *  - circle
  *  - layer- // 常规背景色 层次
- *  - lines
+ *  - line
  * 
  *  - <rect, layer>-6/12/14 rpx
+ * 
+ *  - skies 自定义 use px
+ *    { type: 'rect/circle/layer/line', frame: { width: 0, heihgt: 0, top: 0, left: 0 } , radius: 0 }
  */
 
-var __enable_logging__ = false;
+var __enable_logging__ = true;
 
 Component({
 	props: {
@@ -29,20 +32,19 @@ Component({
     top: 0,
 
 		selector: 'sk',
-		loading: ''
+		loading: '',
+
+    skies: []
 	},
 	data: {
     // 加载效果
 		loadingAni: ['spin', 'chiaroscuro', 'shine'],
 
-    // 系统信息
-		systemInfo: {},
-
     // 骨架信息
-		rect: [null, null, null, null, null, null, null],
-		circle: [null, null, null, null, null, null, null],
-    layer: [null, null, null, null, null, null, null],
-    line: [null, null, null, null, null, null, null]
+		rect: [[], [], [], [], [], [], []],
+		circle: [[], [], [], [], [], [], []],
+    layer: [[], [], [], [], [], [], []],
+    line: [[], [], [], [], [], [], []]
 	},
 	didMount: function () {
     // 默认的首屏宽高，防止内容闪现
@@ -55,20 +57,7 @@ Component({
 			loading: this.data.loadingAni.includes(this.props.loading) ? this.props.loading : 'spin'
 		})
 
-		var that = this;
-		// 绘制背景
-    var sel = '.'+this.props.selector;
-
-		my.createSelectorQuery()
-      .selectAll(sel)
-      .boundingClientRect()
-      .exec(function (res) {
-        __enable_logging__ && console.log(res);
-
-        that.setData({
-          'systemInfo.height': res[0].height + res[0].top
-        })
-		});
+    this.parse(this.props.skies);
 
     this.render('layer');
 		this.render('layer', 1, 6);
@@ -86,6 +75,26 @@ Component({
 
 	},
 	methods: {
+    parse: function (skies) {
+      for ( var idx in skies) {
+        var sky = skies[idx];
+        __enable_logging__ && console.log(sky)
+
+        if (sky && sky.type) {
+          var dimen = 0;
+          var field = sky.type;
+          var data = this.data;
+
+          if (sky.radius == 6) dimen = 1;
+          if (sky.radius == 12) dimen = 2;
+          if (sky.radius == 20) dimen = 3;
+
+          data[field][dimen].push(sky);
+
+          __enable_logging__ && console.log(data[field])
+        }
+      }
+    },
     render: function (field, dimen=0, radius=0) {
       var that = this;
       var sk = this.props.selector;
@@ -95,13 +104,12 @@ Component({
         sel = sel + '-' + radius;
       }
 
-      __enable_logging__ && console.log('sel = '+sel)
-
       my.createSelectorQuery()
         .selectAll(sel)
         .boundingClientRect()
         .exec(function(res) {
 
+          __enable_logging__ && console.log('sel = '+sel)
           __enable_logging__ && console.log(res)
 
           if (res && res.length > 0 && res[0] && res[0].length > 0) {
@@ -117,7 +125,7 @@ Component({
               };
             }
 
-            data[field][dimen] = doms;
+            data[field][dimen] = data[field][dimen].concat(doms);
 
             that.setData(data)
           }

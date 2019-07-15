@@ -1,7 +1,9 @@
 {
   "defaultTitle": "骨架屏",
   "usingComponents": {
-    "skeleton": "/dev/skeleton/index"
+    "skeleton": "/dev/skeleton/index",
+    "tabs": "mini-antui/es/tabs/index",
+    "tab-content": "mini-antui/es/tabs/tab-content/index"
   },
   "pullRefresh": "NO",
   "allowsBounceVertical": "NO"

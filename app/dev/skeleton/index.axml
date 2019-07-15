@@ -27,7 +27,7 @@
             position: absolute; 
             border-radius: {{t.radius}}px; 
             left: {{t.frame.left}}px; 
-            top: {{t.frame.top}}px">
+            top: {{t.frame.top-top}}px">
         </view>
       </block>
     </block>
@@ -49,7 +49,7 @@
             position: absolute; 
             border-radius: {{t.radius}}px; 
             left: {{t.frame.left}}px; 
-            top: {{t.frame.top}}px">
+            top: {{t.frame.top-top}}px">
         </view>
       </block>
     </block>
@@ -71,7 +71,7 @@
             border-radius: 50%; 
             position: absolute; 
             left: {{t.frame.left}}px; 
-            top: {{t.frame.top}}px">
+            top: {{t.frame.top-top}}px">
         </view>
       </block>
     </block>
@@ -90,7 +90,7 @@
             border: 1rpx solid {{lineColor}};
             position: absolute; 
             left: {{t.frame.left}}px; 
-            top: {{t.frame.top}}px">
+            top: {{t.frame.top-top}}px">
         </view>
       </block>
     </block>
