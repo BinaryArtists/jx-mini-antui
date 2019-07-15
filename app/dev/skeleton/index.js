@@ -54,24 +54,24 @@ Component({
 				width: systemInfo.windowWidth,
 				height: systemInfo.windowHeight
 			},
-			loading: this.data.loadingAni.includes(this.props.loading) ? this.props.loading : 'spin'
+			loading: this.props.loading
 		})
 
     this.parse(this.props.skies);
 
-    this.render('layer');
+    this.render('layer', 0, 0);
 		this.render('layer', 1, 6);
     this.render('layer', 2, 12);
     this.render('layer', 3, 20);
 
-    this.render('rect');
+    this.render('rect', 0, 0);
     this.render('rect', 1, 6); // 6, 12, 20 can set by user!!!!
     this.render('rect', 2, 12);
     this.render('rect', 3, 20);
 
-    this.render('circle');
+    this.render('circle', 0, 0);
 
-    this.render('line');
+    this.render('line', 0, 0);
 
 	},
 	methods: {
