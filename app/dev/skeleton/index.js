@@ -95,7 +95,7 @@ Component({
         }
       }
     },
-    render: function (field, dimen=0, radius=0) {
+    render: function (field, dimen, radius) {
       var that = this;
       var sk = this.props.selector;
       var sel = '.' + sk + ' .' + sk + '-' + field;
