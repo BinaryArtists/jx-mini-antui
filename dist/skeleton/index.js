@@ -13,6 +13,9 @@
  * 
  *  - <rect, layer>-6/12/14 rpx
  */
+
+var __enable_logging__ = false;
+
 Component({
 	props: {
 		backgroundColor: '#eeeeee', // page
@@ -60,7 +63,7 @@ Component({
       .selectAll(sel)
       .boundingClientRect()
       .exec(function (res) {
-        console.log(res);
+        __enable_logging__ && console.log(res);
 
         that.setData({
           'systemInfo.height': res[0].height + res[0].top
@@ -92,14 +95,14 @@ Component({
         sel = sel + '-' + radius;
       }
 
-      console.log('sel = '+sel)
+      __enable_logging__ && console.log('sel = '+sel)
 
       my.createSelectorQuery()
         .selectAll(sel)
         .boundingClientRect()
         .exec(function(res) {
 
-          console.log(res)
+          __enable_logging__ && console.log(res)
 
           if (res && res.length > 0 && res[0] && res[0].length > 0) {
             var data = that.data;
