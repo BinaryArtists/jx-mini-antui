@@ -1,0 +1,19 @@
+<view class="confirmor-popup {{className}} {{show ? 'confirmor-popup-show' : ''}} {{ animation ? 'animation': '' }}" disable-scroll="{{disableScroll}}">
+  <view class="confirmor-popup-mask" a:if="{{mask}}" onTap="onMaskTap" style="z-index: {{zIndex}}">
+  </view>
+  <view class="confirmor-popup-content confirmor-popup-{{position}}" style="z-index: {{zIndex}}">
+    <view class="confirm">
+      <view a:if="{{title}}" class="confirm-header">{{title}}
+      </view>
+      <slot/>
+      <view class="confirm-footer-btns">
+        <button a:for="{{btns}}" type="{{item.type}}" open-type="{{item.open_type}}" hover-class="none" class="btn-{{item.type}} size-sm {{item.className}}" data-event="{{item.event}}" data-param="{{item.param}}" onTap="onBtnTap">{{item.text}}
+        </button>
+      </view>
+      <slot name="extra" />
+    </view>
+    <view class="close-btn" onTap="onCloseTap">
+      <image src="/images/icon_close.webp" mode="aspectFit" class="close" />
+    </view>
+  </view>
+</view>

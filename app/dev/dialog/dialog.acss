@@ -1,0 +1,17 @@
+/* 弹出框 */
+
+/* 不一定需要，需要先看看size-* */
+.modal-btn { 
+  margin-top: 10rpx;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  width:160rpx;
+  height: 66rpx;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 66rpx;
+}
+
+.am-modal-footer {
+  border-top: 1rpx solid #fff;
+}

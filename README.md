@@ -1,5 +1,8 @@
 # 组件使用
 
+* [如何录制屏幕呀](https://www.jianshu.com/p/bf3532bbc208)
+* [mov转gif](https://convertio.co/zh/mov-gif/)
+
 JS 写法注意
 ------
 
@@ -227,4 +230,51 @@ filterItems: [
   z-index: 100; 
   top: 0rpx;
 }
+```
+
+骨架屏
+------
+
+![一维条目筛选](res/skeleton/gif.gif)
+
+```json
+"usingComponents": {
+  "skeleton": "/dev/skeleton/index"
+}
+```
+
+```xml
+<skeleton
+  width='100vw'
+  height="100vh"
+  left='0' 
+  top='0'
+  loading="chiaroscuro" 
+  a:if="{{showSkeleton}}"/>
+```
+
+```js
+data: {
+  userInfo: {
+    avatarUrl: 'https://sfault-image.b0.upaiyun.com/117/579/1175792133-5b63fce811636_articlex',
+    nickName: 'jayzou'
+  },
+  lists: [
+    'aslkdnoakjbsnfkajbfk',
+    'qwrwfhbfdvndgndghndeghsdfh',
+    'qweqwtefhfhgmjfgjdfghaefdhsdfgdfh',
+    'qweqwtefhfhgmjfgjdfefdhsdfgdfh',
+    'qweqwtefhfhgmjfgjdfghaefdhh',
+    'qweqwtefhfhgmjfgjdfghaefdhsddsfaewafsfasah',
+    'qweqwtefhfhgmjf',
+    'qweqwtefhfhgmjfgjdfghaefdhsdfgdfh',
+    'qweqwtefhfhgmjdfgdfh',
+    'qw',
+  ],
+  showSkeleton: true
+}
+
+that.setData({
+  showSkeleton: false
+})
 ```

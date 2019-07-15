@@ -1,7 +1,7 @@
 {
   "defaultTitle": "骨架屏",
   "usingComponents": {
-    "skeleton": "jx-mini-antui/dist/skeleton/index"
+    "skeleton": "/dev/skeleton/index"
   },
   "pullRefresh": "NO",
   "allowsBounceVertical": "NO"

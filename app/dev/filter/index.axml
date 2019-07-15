@@ -1,0 +1,33 @@
+<import-sjs name="util" from="./index.sjs"/>
+<!-- 升序/降序排列 -->
+<template name="orderAscDesc">
+  <view class="order btn {{types[state.orderTypeIndex] === 'none' ? '' : 'highlight'}}" onTap="{{onTap}}" data-index="{{index}}">
+    <text>{{state.orderBy.label}}</text>
+    <view class="arrows">
+      <view class="arrow asc {{types[state.orderTypeIndex] === 'asc' ? 'highlight' : ''}}" />
+      <view class="space" />
+      <view class="arrow desc {{types[state.orderTypeIndex] === 'desc' ? 'highlight' : ''}}" />
+    </view>
+  </view>
+</template>
+
+<view class="tz-filter-bar {{className}} {{util.isTransparent(backgroundOpacity) ? 'transparent' : 'opaque'}} {{util.isTransparent(backgroundOpacity) ? '' : 'shadow'}}" style="top:{{fixedTopDistance}}px">
+  <view class="mask {{showPopup ? 'show' : ''}}" onTap="onMaskTap" />
+  <view class="background {{backgroundClassName}}" style="opacity: {{backgroundOpacity}}">
+  </view>
+  <view class="content" catchTap="closePopup">
+    <view class="filter btn highlight" catchTap="onFilterTap">
+      {{filters[filterIndex].label}}
+    </view>
+    <template a:for="{{orderByStates}}" key="{{item.orderBy.value}}" is="orderAscDesc" data="{{state: item, onTap: 'onOrderTap', index, types: orderTypes, isTransparent: util.isTransparent(backgroundOpacity)}}"></template>
+    <view class="display-mode" onTap="onDisplayModeTap">
+      <view class="icon {{displayModes[displayModeIndex] === 'grid' ? 'grid' : 'list'}}" />
+    </view>
+  </view>
+  <view class="filter-popup {{showPopup ? 'show' : ''}}">
+    <view a:for="{{filters}}" a:for-item="filter"
+      class="filter-item {{index === filterIndex ? 'highlight' : ''}}" 
+      data-index="{{index}}"
+      onTap="onFilterItemTap">{{filter.label}}</view>
+  </view>
+</view>

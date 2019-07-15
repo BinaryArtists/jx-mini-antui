@@ -26,7 +26,7 @@ Page({
       'qweqwtefhfhgmjdfgdfh',
       'qw',
 		],
-		showSkeleton: false
+		showSkeleton: true
 	},
 	onLoad: function () {
 		const that = this;

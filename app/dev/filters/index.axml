@@ -1,0 +1,124 @@
+<import-sjs name="pipe" from="./index.sjs"/>
+
+<!-- 下拉筛选框 -->
+<view class="jx-filter-page {{className}}">
+  <view class="jx-filter-title">
+    <block a:for="{{titleItems}}" a:for-index="idx" a:for-item="item">
+      <view class="jx-filter-title-item {{(titleIdx == idx) && optionsShow ? 'active' : ''}}" onTap="onTitleItem" data-nav="{{idx}}">
+        <view class="title-text">{{ pipe.pickTitle(contentItems[idx], titleSelectItems, idx, item) }}</view>
+        <image class="icon"></image>
+      </view>
+    </block>
+  </view>
+
+  <!-- 一维条目筛选 -->
+  <view a:if="{{itemSetting.type == 'single'}}" class="jx-filter-content {{optionsShow ? 'slidown' : 'slidup'}} {{optionsShow ? '':'disappear'}}">
+    <view 
+      a:for="{{itemSetting.items}}" 
+      a:for-index="idx" 
+      a:for-item="item"
+      data-idx="{{idx}}"
+      onTap='onSingleSelectItem'  
+      class="table item-text {{ pipe.compareItem(itemSetting, item) ? 'item-selected' : 'item-normal' }}">
+      {{ pipe.pickItem(itemSetting, item) }}
+    </view>
+  </view>
+
+  <!-- 三维条目筛选 -->
+  <!-- 未调整 -->
+  <view a:if="{{itemSetting.type == 'triple'}}" class="jx-filter-content {{optionsShow ? 'slidown' : 'slidup'}} {{ optionsShow ? '':'disappear'}}">
+
+    <view class="section left">
+      <view 
+        a:for="{{itemSetting.items[0]}}"
+        a:for-index="idx" 
+        a:for-item="item"
+        class="{{ pipe.compareItems(itemSetting, 0, item) ? 'active' : ''}}"
+        onTap="onTripleSelectLeft" 
+        data-item='{{item}}'>
+        {{ pipe.pickItem(itemSetting, item) }}
+      </view>
+    </view>
+
+    <view class="section center">
+      <view 
+        a:for="{{ itemSetting.items[1][itemSetting.selected[0]] }}"
+        a:for-index="idx" 
+        a:for-item="item"
+        class="{{ pipe.compareItems(itemSetting, 1, item) ? 'active' : '' }}"
+        onTap="onTripleSelectCenter" 
+        data-item='{{item}}'>
+        {{ pipe.pickItem(itemSetting, item) }}
+      </view>
+    </view>
+
+
+    <view class="section right">
+      <view 
+        a:for="{{ itemSetting.items[2][itemSetting.selected[1]] }}"
+        a:for-index="idx" 
+        a:for-item="item"
+        class="{{ pipe.compareItems(itemSetting, 2, item) ? 'active' : '' }}" 
+        onTap='onTripleSelectRight' 
+        data-item="{{item}}">
+        <label>
+          {{ pipe.pickItem(itemSetting, item) }}
+        </label>
+        <!-- <image src='/images/selectRight.png' style="{{select3 == index?'display:block':'display:none'}}"></image> -->
+      </view>
+    </view>
+    
+    <view class='btn-select-form'>
+      <button class='btn-reset' onTap='onTripleSelectReset'>重置</button>
+      <button class='btn-submit' onTap='onTripleSelectSubmit'>确定</button>
+    </view>
+  </view>
+
+  <!-- 价格区间筛选 -->
+  <!-- 未调整 -->
+  <view a:if="{{itemSetting.type == 'price'}}" class="jx-filter-content {{optionsShow ? 'slidown' : 'slidup'}} {{ optionsShow ? '':'disappear'}}">
+    <view class='price-select'>
+      <view class='price-preview'>
+        <text class='value'>￥{{itemSetting.selected[0]}}</text>
+        <text class='value'>￥{{itemSetting.selected[1]}}</text>
+      </view>
+      <view class='slider-select'>
+        <slider 
+          style='width:50%;margin-right:0rpx;' 
+          onChange="onPriceMinChange" 
+          min='{{itemSetting.items[0].min}}' 
+          max='{{itemSetting.items[0].max}}' 
+          value='{{itemSetting.selected[0]}}' 
+          activeColor='#cecacb' 
+          backgroundColor='#f26a36' 
+          block-size='18' 
+          step='100' />
+
+        <slider 
+          style='width:50%;margin-left:0rpx;' 
+          onChange="onPriceMaxChange" 
+          min='{{itemSetting.items[0].min}}' 
+          max='{{itemSetting.items[1].max}}' 
+          value='{{itemSetting.selected[1]}}' 
+          activeColor='#f26a36' 
+          backgroundColor='#cecacb' 
+          block-size='18' 
+          step='100' />
+      </view>
+    </view>
+
+    <view class='btn-select-form'>
+      <button class='btn-reset' onTap='onPriceSelectReset'>重置</button>
+      <button class='btn-submit' onTap='onPriceSelectCommit'>确定</button>
+    </view>
+
+  </view>
+
+  <view 
+    class="jx-filter-mask {{ showMask ? 'show-mask' : ''}}" 
+    onTap="onMaskTap" 
+    catchTap="onMaskTap" 
+    disable-scroll="{{disableScroll}}"
+    
+    hover-stop-propagation="{{true}}"></view>
+</view>

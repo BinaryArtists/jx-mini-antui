@@ -1,0 +1,29 @@
+.jx-tabs-tab-bar-wrap{width:100%}
+
+.jx-tabs-bar{background:#fff;width:100%;height:42px;display:flex}
+
+.jx-tabs-scroll-left{width:36px;height:39px;position:absolute;top:1px;left:0;z-index:99;background:linear-gradient(to right,#fff,rgba(255,255,255,0)) left no-repeat;background-size:100%}
+
+.jx-tabs-scroll-right{width:36px;height:39px;position:absolute;top:1px;right:0;z-index:99;background:linear-gradient(to left,#fff,rgba(255,255,255,0)) left no-repeat;background-size:100%}
+
+.jx-tabs-plus-wrap{display:none;position:relative;width:24px;height:43px}
+
+.jx-tabs-plus-wrap.show{display:block}
+
+.jx-tabs-plus{position:absolute;z-index:100;top:4px;left:0;transform:translateX(-50%);width:32px;height:32px;background-image:url(https://gw.alipayobjects.com/zos/rmsportal/DObPgppwxyNHeejHANtu.png);background-size:16px 16px;background-position:center;background-repeat:no-repeat}
+
+.jx-tabs-bar-content-wrap{position:relative;flex:1}
+
+/* overflow-x:auto;overflow-y:hidden; */
+.jx-tabs-bar-content{width:100%;height:50px;display:flex;flex-direction:row}
+
+.jx-tabs-bar-tab{height:42px;display:flex;align-items:center;justify-content:center;width:25%;flex-shrink:0;font-size:16px}
+
+.jx-tabs-bar-title{height:42px;line-height:42px;box-sizing:border-box;position:relative;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:transparent}
+
+/* overflow:hidden; */
+.jx-tabs-content-wrap{margin-top:1px;display:flex;background:#fff;flex-direction:row;height:auto}
+
+.jx-tabs-content-wrap.fix{height:auto!important}
+
+.jx-tabs-slides{display:flex;transition-duration:.5s}
