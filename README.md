@@ -3,6 +3,12 @@
 * [如何录制屏幕呀](https://www.jianshu.com/p/bf3532bbc208)
 * [mov转gif](https://convertio.co/zh/mov-gif/)
 
+TODO
+------
+
+* [ ] 骨架屏有两个需求：减少侵入型、支持懒加载、不可挡住原有屏幕的交互事件、支持屏幕任意区域、是否还有更优的方案
+  - H5 骨架屏怎么做？？
+
 JS 写法注意
 ------
 
