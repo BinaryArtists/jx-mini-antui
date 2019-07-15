@@ -220,11 +220,15 @@ Page({
 
 
     /// 列表
-    disableScroll: false
+    disableScroll: false,
+    scrollRectTop: 0
   },
   onLoad() {
 
   },
+  onReady () {
+  },
+
   onItemClick(ev) {
     my.alert({
       content: `点击了第${ev.index}行`,
@@ -239,13 +243,35 @@ Page({
     // });
   },
   onFilterFocus () {
-    this.setData({
-      disableScroll: true
-    })
+    // this.setData({
+    //   disableScroll: true
+    // })
+
+    var self = this;
+
+     my.createSelectorQuery()
+      .select('.filters-bar').boundingClientRect().exec((ret) => {
+      console.log(ret);
+
+      var filtersBarFrame = ret[0];
+      var scrollRectTop = filtersBarFrame.bottom * 2;
+
+      self.setData({
+        scrollRectTop,
+        disableScroll: true
+      })
+    });
   },
   onFilterBlur () {
     this.setData({
-      disableScroll: false
+      disableScroll: false,
+      scrollRectTop: 0
     })
-  }
+  },
+
+  // Search 
+
+  onSearchInput () {},
+  onSearchConfirm () {},
+  onSearchClear () {}
 });

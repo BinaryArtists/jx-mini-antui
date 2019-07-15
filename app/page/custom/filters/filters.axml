@@ -1,4 +1,13 @@
 <view>
+
+  <input
+    class="search-input"
+    placeholder="搜索"
+    value="{{search}}"
+    onConfirm="onSearchConfirm"
+    onInput="onSearchInput"
+  />
+
   <filters-bar 
     className="filters-bar" 
     titleItems="{{filterTitles}}" 
@@ -11,17 +20,18 @@
 
   <!-- 简单滚动区域 -->
 
-  <!-- <view class="{{ disableScroll ? 'disable-scroll' : ''}}">
+  <view style="height: calc(100vh - {{scrollRectTop}}px);"  class="{{ disableScroll ? 'disable-scroll' : ''}}">
     <block a:for="{{marginItems}}" >
       <view style="width: 100vw;height: 200rpx;background-color: red;">{{item+' red'}}</view>
       <view style="width: 100vw;height: 200rpx;background-color: green;">{{item+' green'}}</view>
     </block>
-  </view> -->
+  </view>
 
 
   <!-- 复杂滚动区域 -->
-<!-- style="height: 100vh;" -->
-  <scroll-view  scroll-y onScrollToLower="onScrollToLower">
+  <!-- <scroll-view
+  style="height: calc(100vh - {{scrollRectTop}}px);" 
+  class="{{ disableScroll ? 'disable-scroll' : ''}}" scroll-y onScrollToLower="onScrollToLower">
 		<list>
 			<view slot="header">
 				列表头部
@@ -175,5 +185,5 @@
 				列表尾部
 			</view>
 		</list>
-	</scroll-view>
+	</scroll-view> -->
 </view>

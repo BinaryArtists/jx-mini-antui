@@ -1,3 +1,32 @@
+.search-input {
+  flex:1;
+  text-align: left;
+  display: block;
+  color: #000;
+  height: 24px;
+  font-size: 15px;
+  background-color: #fff;
+  border-color: transparent;
+  z-index: auto;
+}
+.search-input:focus + .search-cancel {
+  margin-right:0;
+  opacity: 1;
+}
+.search-cancel {
+  margin-right:-40px;
+  display: inline-block;
+  opacity: 0;
+  padding-left: 8px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+  color: #108ee9;
+  text-align: right;
+  transition: margin-right .3s,opacity .3s;
+  transition-delay: .1s;
+}
+
 .filters-bar {
   width: 100%;
   position: sticky;
@@ -22,7 +51,15 @@
 }
 
 .disable-scroll {
-  overflow: hidden;width: 100vw;height:calc(100vh - 81rpx);
+  width: 100vw;
+  /* overflow: hidden; */
+  
+
+
+  /* clip: rect(top, right, bottom, left); */
+  clip: rect(200rpx, 0, 0, 0);
+  /* position: absolute; */
+  /* bottom: 0rpx; */
 }
 
 .am-list-sticky {
