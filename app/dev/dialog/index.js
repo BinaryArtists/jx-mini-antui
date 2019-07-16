@@ -9,8 +9,6 @@
  * btnHandlers
  * 
  * [ {type: 'minor', title: '', event: '' } ] minor, primary
- * 
- * 
  */
 
 Component({

@@ -26,9 +26,9 @@ JS 写法注意
 
 ```json
 {
-  "defaultTitle": "活动成员",
+  "defaultTitle": "页面标题",
   "usingComponents": {
-    "dialog": "jx-mini-antui/dist/dialog/dialog"
+    "dialog": "jx-mini-antui/dist/dialog/index"
   }
 }
 ```
@@ -39,10 +39,14 @@ JS 写法注意
   title="{{delDialog.title}}" 
   buttons="{{delDialog.buttons}}" 
   data="{{delDialog.data}}"
-  onButtonClicked="onMemberDelConfirmed"
+  onButtonClicked="onDelConfirmed"
   >
   <text>确认将</text><text style="color:#CD162C;margin-left:10rpx;margin-right:10rpx;"> {{delDialog.username}} </text><text>移除本次活动吗？移除后退款将在24小时内原路退回至成员账户</text>    
 </dialog>
+```
+
+```js
+
 ```
 
 确认框

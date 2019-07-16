@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "对话框",
+  "usingComponents": {
+    "dialog": "/dev/dialog/index"
+  },
+  "pullRefresh": "NO",
+  "allowsBounceVertical": "NO"
+}

@@ -1,0 +1,18 @@
+<view>
+  <view class="btn-container">
+    <button onTap="onTap">上</button>
+    <button onTap="onButtomBtnTap">下</button>
+    <button onTap="onRightBtnTap">右 无mask</button>
+    <button onTap="onLeftBtnTap">左 无动画</button>
+  </view>
+
+  <dialog
+    show="{{delDialog.show}}"
+    title="{{delDialog.title}}" 
+    buttons="{{delDialog.buttons}}" 
+    data="{{delDialog.data}}"
+    onButtonClicked="onDelConfirmed"
+    >
+    <text>确认将</text><text style="color:#CD162C;margin-left:10rpx;margin-right:10rpx;"> {{delDialog.username}} </text><text>移除本次活动吗？移除后退款将在24小时内原路退回至成员账户</text>    
+  </dialog>
+</view>

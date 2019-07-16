@@ -1,7 +1,27 @@
 page {
   background-color: #F7F7F7;
   box-sizing: border-box;
+
+  /* font weight */
+  --font-weight-regular: 400; /* equivalent to normal */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --tz-primary-color-1: #CD162C;
+  --tz-primary-color-2: #D33D3D;
+  --tz-primary-color-3: #F0300F;
+  --tz-primary-color-4: #F05D43;
+
+    /* 文字颜色 */
+  --tz-txt-color-1: #333333;
+  --tz-txt-color-2: #4A4A4A;
+  --tz-txt-color-3: #818181;
+  --tz-txt-color-4: #999999;
+  --tz-txt-color-5: #B1B1B1;
+
+  background: var(--tz-background-bottom-color);
 }
+
 
 .page {
   font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
