@@ -2,6 +2,7 @@
 
 * [如何录制屏幕呀](https://www.jianshu.com/p/bf3532bbc208)
 * [mov转gif](https://convertio.co/zh/mov-gif/)
+* [webp工具下载](https://developers.google.com/speed/webp/), [webp命令说明](https://developers.google.com/speed/webp/docs/cwebp)
 
 TODO
 ------
@@ -23,6 +24,8 @@ JS 写法注意
 
 对话框
 ------
+
+*优先使用：my.alert/my.confirm*
 
 ```json
 {
@@ -51,6 +54,8 @@ JS 写法注意
 
 确认框
 ------
+
+*优先使用：my.alert/my.confirm*
 
 ```json
 {

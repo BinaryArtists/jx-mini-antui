@@ -104,6 +104,7 @@ Component({
           showMask: false,
         }, this.props.onBlur)
       } else {
+        var self = this;
         // 展开
         this.setData({
           titleIdx: idx,
@@ -112,7 +113,9 @@ Component({
 
           optionsShow: true,
           showMask: true,
-        }, this.props.onFocus)
+        }, function () {
+          self.props.onFocus && self.props.onFocus(idx);
+        })
       }
     },
 

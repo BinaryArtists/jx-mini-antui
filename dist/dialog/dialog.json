@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "modal": "mini-antui/es/modal/index"
-  }
-}
