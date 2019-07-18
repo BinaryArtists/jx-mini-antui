@@ -17,7 +17,7 @@
  *    { type: 'rect/circle/layer/line', frame: { width: 0, heihgt: 0, top: 0, left: 0 } , radius: 0 }
  */
 
-var __enable_logging__ = true;
+var __enable_logging__ = false;
 
 Component({
 	props: {
@@ -48,12 +48,11 @@ Component({
 	},
 	didMount: function () {
     // 默认的首屏宽高，防止内容闪现
-		var systemInfo = my.getSystemInfoSync();
 		this.setData({
-			systemInfo: {
-				width: systemInfo.windowWidth,
-				height: systemInfo.windowHeight
-			},
+			rect: [[], [], [], [], [], [], []],
+      circle: [[], [], [], [], [], [], []],
+      layer: [[], [], [], [], [], [], []],
+      line: [[], [], [], [], [], [], []],
 			loading: this.props.loading
 		})
 
