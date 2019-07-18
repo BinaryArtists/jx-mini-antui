@@ -9,7 +9,7 @@
 
           background-color: {{backgroundColor}}; 
           position: absolute;
-          z-index:9998;">
+          z-index:500;">
 
     <block
       a:for="{{layer}}" 
