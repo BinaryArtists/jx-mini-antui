@@ -21,6 +21,7 @@ var __enable_logging__ = false;
 
 Component({
 	props: {
+
 		backgroundColor: '#eeeeee', // page
     layerColor: '#ffffff', // layer
     rectColor: '#ececec', // rect, circle
@@ -34,9 +35,13 @@ Component({
 		selector: 'sk',
 		loading: '',
 
-    skies: []
+    skies: [],
+
+    imgSrc: ''
 	},
 	data: {
+    useCssSelector: true, // 实现方式：css、图片
+
     // 加载效果
 		loadingAni: ['spin', 'chiaroscuro', 'shine'],
 
@@ -54,7 +59,13 @@ Component({
       layer: [[], [], [], [], [], [], []],
       line: [[], [], [], [], [], [], []],
 			loading: this.props.loading
-		})
+    })
+    
+    if (!my.canIUse('createSelectorQuery')) {
+      this.setData({useCssSelector:false});
+
+      return;
+    }
 
     this.parse(this.props.skies);
 
@@ -103,6 +114,9 @@ Component({
         sel = sel + '-' + radius;
       }
 
+      
+        
+
       my.createSelectorQuery()
         .selectAll(sel)
         .boundingClientRect()
@@ -128,7 +142,7 @@ Component({
 
             that.setData(data)
           }
-			});
+      });
     }
 	}
 

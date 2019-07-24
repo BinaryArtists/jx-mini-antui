@@ -4,12 +4,18 @@
 
   style=" width: {{width}}; 
           height: {{height}}; 
-          left: {{left}}; 
-          top: {{top}}; 
+          left: {{left}}px; 
+          top: {{top}}px; 
 
           background-color: {{backgroundColor}}; 
           position: absolute;
           z-index:500;">
+
+  <image 
+    a:if="{{!useCssSelector}}" 
+    style="width: 100%;"
+    mode="widthFix" 
+    src="{{imgSrc}}"/>
 
     <block
       a:for="{{layer}}" 
@@ -87,7 +93,7 @@
         <view 
           style="
             width: {{t.frame.width}}px;
-            border: 1rpx solid {{lineColor}};
+            border: 1px solid {{lineColor}};
             position: absolute; 
             left: {{t.frame.left}}px; 
             top: {{t.frame.top-top}}px">

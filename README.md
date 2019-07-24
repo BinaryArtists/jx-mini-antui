@@ -211,8 +211,27 @@ filterItems: [
         style="height: calc(100vh - {{scrollRectTop}}px);" 
         disable-scroll="{{disableScroll}}"
         class="{{ disableScroll ? 'disable-scroll' : ''}}">
+    2.1 scrollRectTop （如果是定长就更好了）计算：
+      << In onFilterFocus() >>
+      my.createSelectorQuery()
+      .select('.fb').boundingClientRect().exec((ret) => {
+        console.log(ret);
+
+        var filtersBarFrame = ret[0];
+        var scrollRectTop = filtersBarFrame.bottom;
+
+        self.setData({
+          scrollRectTop,
+          disableScroll: true
+        })
+      });
     3. 利用 onFilterFocus, onFilterBlur 触发 disableScroll
-    
+      onFilterBlur() {
+        this.setData({
+          disableScroll: false,
+          scrollRectTop: 0
+        })
+      }
 */
 .filters-bar {
   position: sticky;
