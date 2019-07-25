@@ -149,6 +149,7 @@ Component({
     },
 
     parse: function (skies) {
+      var that = this;
       for ( var idx in skies) {
         var sky = skies[idx];
         __enable_logging__ && console.log(sky)
@@ -159,7 +160,13 @@ Component({
           var data = this.data;
 
           /// FIXME: 特殊处理
-          sky.frame.top = sky.frame.top + parseInt(this.props.top);
+          // sky.frame.top = sky.frame.top + parseInt(this.props.top);
+
+          /// FIXME: 特殊处理
+          if (that.props.auto) 
+            sky.frame.top = sky.frame.top + parseInt(this.data.top);
+          else
+            sky.frame.top = sky.frame.top + parseInt(this.props.top);
 
           if (sky.radius == 6) dimen = 1;
           if (sky.radius == 12) dimen = 2;
