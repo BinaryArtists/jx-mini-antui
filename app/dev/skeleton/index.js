@@ -2,9 +2,10 @@
  * @Hook
  * 
  *  - sk 静态
- *  - sk-anim 默认动画
  * 
  * @Child
+ * 
+ *  - top 该元素，计算skeleton高度
  * 
  *  - rect
  *  - circle
@@ -19,8 +20,38 @@
 
 var __enable_logging__ = false;
 
+
+// export function cssel (c) {
+//   return new Promise((resolve, reject) => {
+//     my.createSelectorQuery()
+//       .selectAll('.'+c).boundingClientRect().exec((ret) => {
+//       if (ret && ret.length && ret[0].length > 0) {
+//         resolve(ret[0]);
+//       } else {
+//         reject(null);
+//       }
+//     });
+//   });
+  
+// }
+
+// export function idsel (i) {
+//   return new Promise((resolve, reject) => {
+//     my.createSelectorQuery()
+//       .select('#'+i).boundingClientRect().exec((ret) => {
+//       if (ret && ret.length && ret[0].length > 0) {
+//         resolve(ret[0]);
+//       } else {
+//         reject(null);
+//       }
+//     });
+//   });
+// }
+
 Component({
 	props: {
+    auto: false,
+    // ready: false,
 
 		backgroundColor: '#eeeeee', // page
     layerColor: '#ffffff', // layer
@@ -50,7 +81,13 @@ Component({
 		circle: [[], [], [], [], [], [], []],
     layer: [[], [], [], [], [], [], []],
     line: [[], [], [], [], [], [], []]
-	},
+  },
+  didUpdate: function (prevProps, prevData) {
+    // false -> true
+    // if (!prevProps.ready && this.props.ready) {
+    //   this.shine();
+    // }
+  },
 	didMount: function () {
     // 默认的首屏宽高，防止内容闪现
 		this.setData({
@@ -60,31 +97,57 @@ Component({
       line: [[], [], [], [], [], [], []],
 			loading: this.props.loading
     })
-    
-    if (!my.canIUse('createSelectorQuery')) {
-      this.setData({useCssSelector:false});
 
-      return;
+    if (this.props.auto) {
+      this.parseTop();
+      
+    } else {
+      this.shine();
     }
-
-    this.parse(this.props.skies);
-
-    this.render('layer', 0, 0);
-		this.render('layer', 1, 6);
-    this.render('layer', 2, 12);
-    this.render('layer', 3, 20);
-
-    this.render('rect', 0, 0);
-    this.render('rect', 1, 6); // 6, 12, 20 can set by user!!!!
-    this.render('rect', 2, 12);
-    this.render('rect', 3, 20);
-
-    this.render('circle', 0, 0);
-
-    this.render('line', 0, 0);
-
 	},
 	methods: {
+    shine: function () {
+      if (!my.canIUse('createSelectorQuery')) {
+        this.setData({useCssSelector:false});
+  
+        return;
+      }
+  
+      this.parse(this.props.skies);
+  
+      this.render('layer', 0, 0);
+      this.render('layer', 1, 6);
+      this.render('layer', 2, 12);
+      this.render('layer', 3, 20);
+  
+      this.render('rect', 0, 0);
+      this.render('rect', 1, 6); // 6, 12, 20 can set by user!!!!
+      this.render('rect', 2, 12);
+      this.render('rect', 3, 20);
+  
+      this.render('circle', 0, 0);
+  
+      this.render('line', 0, 0);
+    },
+
+    parseTop: function () {
+      var that = this;
+
+      my.createSelectorQuery()
+      .selectAll('.sk-top')
+      .boundingClientRect()
+      .exec(function(res) {
+        var doms = res[0];
+        var dom = doms[0];
+
+        that.setData({
+          top: dom.top
+        }, function () {
+          that.shine();
+        });
+      })
+    },
+
     parse: function (skies) {
       for ( var idx in skies) {
         var sky = skies[idx];
@@ -116,9 +179,6 @@ Component({
       if (radius) {
         sel = sel + '-' + radius;
       }
-
-      
-        
 
       my.createSelectorQuery()
         .selectAll(sel)
