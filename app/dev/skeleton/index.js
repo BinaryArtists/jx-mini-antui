@@ -96,7 +96,7 @@ Component({
           var data = this.data;
 
           /// FIXME: 特殊处理
-          sky.frame.top = sky.frame.top + this.props.top;
+          sky.frame.top = sky.frame.top + parseInt(this.props.top);
 
           if (sky.radius == 6) dimen = 1;
           if (sky.radius == 12) dimen = 2;
