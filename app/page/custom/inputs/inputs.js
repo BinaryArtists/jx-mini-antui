@@ -1,10 +1,10 @@
 Page({
   data: {
-    namePlacehold: ""
+    namePlacehold: "dddddddd"
   },
   onLoad() {
     this.setData({
-      namePlacehold: "李杰"
+      // namePlacehold: "李杰"
     });
   },
   onConfirm () {
@@ -18,6 +18,10 @@ Page({
   },
   onInput () {
     console.log('on input');
+
+     this.setData({
+      namePlacehold:e.detail.value,
+    })
   },
   onTap() {
     this.setData({

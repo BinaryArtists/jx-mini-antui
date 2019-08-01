@@ -1,6 +1,6 @@
 <view>
   <input 
-    type="" 
+    type="text" 
     placeholder="请输入姓名" 
     auto-focus="{{false}}" 
     class="input-text" 
