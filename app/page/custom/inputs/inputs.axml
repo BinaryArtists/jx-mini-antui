@@ -1,0 +1,16 @@
+<view>
+  <input 
+    type="" 
+    placeholder="请输入姓名" 
+    auto-focus="{{false}}" 
+    class="input-text" 
+    onInput="onInput" 
+    onConfirm="onConfirm"
+    onFocus="onFocus"
+    onBlur="onBlur"
+    value="{{namePlacehold}}"/>
+
+  <view>
+    <button onTap="onTap">清空数据</button>
+  </view>
+</view>

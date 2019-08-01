@@ -131,7 +131,8 @@
     "page/custom/index/index",
     "page/custom/filters/filters",
     "page/custom/skeleton-screen/skeleton-screen",
-    "page/custom/dialogs/dialogs"
+    "page/custom/dialogs/dialogs",
+    "page/custom/inputs/inputs"
   ],
   "window": {
     "enableWK": "YES",
