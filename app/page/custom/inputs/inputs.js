@@ -25,8 +25,14 @@ Page({
   },
   onTap() {
     this.setData({
-      namePlacehold: ""
+      namePlacehold: ''
     });
+
+    setTimeout(() => {
+      this.setData({
+      namePlacehold: ''
+    });
+    }, 0);
 
     console.log('namePlacehold = ', this.data.namePlacehold);
   }
