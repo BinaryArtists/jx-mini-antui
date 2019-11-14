@@ -1,0 +1,20 @@
+<modal show="{{show}}" showClose="{{showClose}}" onModalClose="onClose">
+
+  <view slot="header">{{title}}</view>
+
+  <slot />
+
+  <view slot="footer" class="row-hv-lsometric">
+    <button 
+      a:for="{{buttons}}" 
+      a:for-item="btn" 
+      a:for-index="index"
+      type="{{btn.type}}" 
+      class="btn-{{btn.type}} size-md modal-btn" 
+      onTap="onBtnClicked" 
+      data-idx="{{index}}"
+      data-event="{{btn.event}}">
+      {{btn.title}}
+    </button>
+  </view>
+</modal>
