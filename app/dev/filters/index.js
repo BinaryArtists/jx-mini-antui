@@ -31,21 +31,7 @@ Component({
   didMount: function () {
     __enable_logging__ && console.log('<filters> params did mount');
 
-    let titleSelectItems = [null, null, null, null, null, null, null, null, null, null, null, null, null];
-
-    for (let idx in this.props.contentItems) {
-      const item = this.props.contentItems[idx];
-
-      if (item.selected) {
-        titleSelectItems[idx] = item.selected;
-      }
-    }
-
-    this.setData({
-      titleItems: this.props.titleItems,
-      contentItems: this.props.contentItems,
-      titleSelectItems: titleSelectItems
-    })
+    this.initData();
   },
   /**
    * @调用逻辑
@@ -62,15 +48,32 @@ Component({
       prevProps.contentItems.length != this.props.contentItems.length) {
         __enable_logging__ && console.log('<filters> params did updated');
 
-        this.setData({
-          titleItems: this.props.titleItems,
-          contentItems: this.props.contentItems
-        })
+        this.initData();
     }
     
   },
   didUnmount: function () {},
   methods: {
+    initData: function () {
+      var titleSelectItems = [null, null, null, null, null, null, null, null, null, null, null, null, null];
+
+      for (var idx in this.props.contentItems) {
+        var item = this.props.contentItems[idx];
+
+        console.log(item);
+
+        if (item.selected) {
+          titleSelectItems[idx] = item.selected;
+        }
+      }
+      
+      this.setData({
+        titleItems: this.props.titleItems,
+        contentItems: this.props.contentItems,
+        titleSelectItems: titleSelectItems
+      })
+    },
+
     //////////////////////////////////////////////////////
     // 菜单选择
     //////////////////////////////////////////////////////
