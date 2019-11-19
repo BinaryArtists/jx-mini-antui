@@ -31,10 +31,20 @@ Component({
   didMount: function () {
     __enable_logging__ && console.log('<filters> params did mount');
 
+    let titleSelectItems = [null, null, null, null, null, null, null, null, null, null, null, null, null];
+
+    for (let idx in this.props.contentItems) {
+      const item = this.props.contentItems[idx];
+
+      if (item.selected) {
+        titleSelectItems[idx] = item.selected;
+      }
+    }
+
     this.setData({
       titleItems: this.props.titleItems,
       contentItems: this.props.contentItems,
-      titleSelectItems: [null, null, null, null, null, null, null, null, null, null, null, null, null]
+      titleSelectItems: titleSelectItems
     })
   },
   /**
@@ -82,6 +92,10 @@ Component({
       var type = itemSetting.type;
 
       if (type === 'price') {
+        if (!itemSetting.selected) {
+          itemSetting.selected = [null, null]
+        }
+
         itemSetting.selected[0] = itemSetting.default[0];
         itemSetting.selected[1] = itemSetting.default[1];
       }
@@ -133,6 +147,7 @@ titleSelectItems: titleSelectItems,
     //////////////////////////////////////////////////////
     // 一维条目选择
     //////////////////////////////////////////////////////
+
     onSingleSelectItem: function (e) {
       var itemSelectIdx = e.currentTarget.dataset.idx;
 
@@ -145,10 +160,6 @@ titleSelectItems: titleSelectItems,
       var titleSelectItems = this.data.titleSelectItems;
 
       titleSelectItems[this.data.titleIdx] = itemSetting.selected;
-
-      // this.setData({
-        
-      // });
 
       __enable_logging__ && console.log('itemSetting = '+JSON.stringify(itemSetting))
 
@@ -168,8 +179,12 @@ titleSelectItems: titleSelectItems,
 
       var itemSetting = this.data.itemSetting;
 
+      if (!itemSetting.selected) {
+        itemSetting.selected = [null, null, null]
+      }
+
       itemSetting.selected[0] = item;
-      itemSetting.selected[1] = ''; // 清理第二级选择
+      itemSetting.selected[1] = null; // 清理第二级选择
 
       this.setData({
         itemSetting: itemSetting
@@ -216,7 +231,7 @@ titleSelectItems: titleSelectItems,
     onTripleSelectReset: function () {
       var itemSetting = this.data.itemSetting;
 
-      itemSetting.selected = ['', '', ''];
+      itemSetting.selected = [null, null, null];
 
       this.setData({
         itemSetting: itemSetting

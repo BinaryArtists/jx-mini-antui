@@ -25,7 +25,7 @@
           <list className="list-item">
             <view slot="header" class="list-header">{{list.type}}</view>
             <block a:for="{{list.list}}">
-              <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}">
+              <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}}">
                 <navigator url="{{item.path}}" style="display: flex; align-items: center">
                   <image src="{{item.thumb}}" class="thumb"  mode="aspectFit" />
                   <text class="component-name">{{item.name}}</text>
@@ -41,7 +41,7 @@
           <list className="list-item">
             <view slot="header" class="list-header">{{list.type}}</view>
             <block a:for="{{list.list}}">
-              <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}">
+              <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}}">
                 <navigator url="{{item.path}}" style="display: flex; align-items: center">
                   <image src="{{item.thumb}}" class="thumb" mode="aspectFit" />
                   <text class="component-name">{{item.name}}</text>

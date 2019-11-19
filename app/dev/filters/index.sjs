@@ -4,7 +4,9 @@ export default {
 
     if (! selected || !is) return titleItem;
 
-    if (is.type === 'single' || is.type === 'double' || is.type === 'triple') {
+    if (is.type === 'single' 
+    // || is.type === 'double' || is.type === 'triple'
+    ) {
       return selected ? (is.keypath ? selected[is.keypath] : selected ) : titleItem;
     } else if (is.type === 'price') {
       
@@ -29,8 +31,10 @@ export default {
   compareItems: function (is, idx, item) {
     if (is.keypath && is.selected && is.selected[idx]) {
       return is.selected[idx][is.keypath] === item[is.keypath];
-    } else {
+    } else if (is.selected) {
       return is.selected[idx] === item;
     }
+
+    return false;
   }
 };

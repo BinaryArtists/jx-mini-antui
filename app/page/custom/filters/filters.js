@@ -5,13 +5,16 @@ Page({
     filterItems: [
       {
         type: 'single',
-        items: ['选项一', '选项二', '选项三', '选项四'],
+        items: ['全部分类', '选项一', '选项二', '选项三', '选项四'],
         keypath: null, // 如果keypath有效，则会对items中的对象进行萃取
-        selected: null
+        selected: '选项一'
       }, 
       {
         type: 'single',
         items: [{
+          name: '比赛日期',
+          key: 0
+        },{
           name: '选项一',
           key: 1
         }, {
@@ -25,7 +28,10 @@ Page({
           key: 4
         }],
         keypath: 'name', // 如果keypath有效，则会对items中的对象进行萃取
-        selected: [null, null]
+        selected: {
+          name: '选项一',
+          key: 1
+        }
       }, 
       {
         type: 'triple',
@@ -45,7 +51,7 @@ Page({
             '选项五': ['选项一', '选项二', '选项三']
           }],
         keypath: null, // 如果keypath有效，则会对items中的对象进行萃取
-        selected: [null, null, null]
+        selected: null
       }, 
       {
         type: 'price',
@@ -59,7 +65,7 @@ Page({
           }
         ],
         default: [1000, 6000],
-        selected: [null, null]
+        selected: null
       }
     ],
 
@@ -267,6 +273,9 @@ Page({
       disableScroll: false,
       scrollRectTop: 0
     })
+  },
+  onFilterChange (item) {
+    console.log('filters changed item = ', item);
   },
 
   // Search 
