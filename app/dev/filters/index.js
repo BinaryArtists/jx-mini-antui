@@ -52,7 +52,13 @@ Component({
     }
     
   },
-  didUnmount: function () {},
+  didUnmount: function () {
+    __enable_logging__ && console.log('did unmount filters');
+
+    // 支付宝会对部分数据有缓存，可能是在page/component之间传递的那部分。还不确定
+    this.props.titleItems = [];
+    this.props.contentItems = [];
+  },
   methods: {
     initData: function () {
       var titleSelectItems = [null, null, null, null, null, null, null, null, null, null, null, null, null];
